@@ -57,7 +57,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-[1] opacity-20 bg-gradient-to-tr from-[#C8956C]/20 via-transparent to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-[5vw] max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-[5vw] max-w-5xl mx-auto pt-20 md:pt-24">
         <span
           ref={badgeRef}
           className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-8"
