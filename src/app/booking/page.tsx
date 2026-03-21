@@ -2,9 +2,15 @@
 
 import { useState } from "react";
 import { SERVICES } from "@/lib/constants";
-import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Check, ArrowRight, Loader2 } from "lucide-react";
+
+const SERVICE_PRICES: Record<string, string> = {
+  "food-photography": "From $750",
+  "product-shoots": "From $950",
+  "social-media": "From $1,500/mo",
+  "brand-campaigns": "From $2,500",
+};
 
 export default function BookingPage() {
   const [selected, setSelected] = useState<string | null>(null);
@@ -47,19 +53,19 @@ export default function BookingPage() {
               onClick={() => setSelected(service.id)}
               className={`text-left p-7 rounded-2xl border-2 transition-all duration-200 ${
                 selected === service.id
-                  ? "border-brand bg-brand/5"
-                  : "border-border bg-white hover:border-brand/30"
+                  ? "border-gold glass-gold"
+                  : "border-white/10 glass hover:border-gold/30"
               }`}
             >
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-lg font-medium text-text-primary">
+                <h3 className="text-lg font-medium text-white">
                   {service.title}
                 </h3>
                 <div
                   className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                     selected === service.id
-                      ? "border-brand bg-brand"
-                      : "border-border"
+                      ? "border-gold bg-gold"
+                      : "border-white/20"
                   }`}
                 >
                   {selected === service.id && (
@@ -68,24 +74,12 @@ export default function BookingPage() {
                 </div>
               </div>
 
-              <p className="text-text-muted text-sm leading-relaxed mb-4">
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
                 {service.description}
               </p>
 
-              <ul className="space-y-1.5 mb-5">
-                {service.features.map((f) => (
-                  <li
-                    key={f}
-                    className="text-xs text-text-muted flex items-center gap-2"
-                  >
-                    <div className="w-1 h-1 rounded-full bg-brand" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <p className="text-xl font-medium text-brand">
-                {service.priceLabel}
+              <p className="text-xl font-medium text-gold">
+                {SERVICE_PRICES[service.id] ?? "Contact for pricing"}
               </p>
             </button>
           ))}
@@ -99,27 +93,25 @@ export default function BookingPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="w-full px-6 py-3.5 rounded-full border border-border bg-white text-text-primary text-sm placeholder:text-text-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
+              className="w-full px-6 py-3.5 rounded-full glass text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-gold/30 border border-white/10 transition-all"
             />
-            <Button
+            <button
               onClick={handleCheckout}
               disabled={!email || loading}
-              variant="primary"
-              size="lg"
-              className="w-full"
+              className="w-full inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-gold text-white font-medium hover:bg-gold-dark transition-colors disabled:opacity-50"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  <Loader2 className="w-4 h-4 animate-spin" />
                   Processing...
                 </>
               ) : (
                 <>
                   Proceed to Payment
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4" />
                 </>
               )}
-            </Button>
+            </button>
           </div>
         )}
       </div>

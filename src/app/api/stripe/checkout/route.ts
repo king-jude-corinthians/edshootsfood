@@ -2,6 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { SERVICES } from "@/lib/constants";
 
+const SERVICE_PRICES: Record<string, number> = {
+  "food-photography": 75000,
+  "product-shoots": 95000,
+  "social-media": 150000,
+  "brand-campaigns": 250000,
+};
+
 export async function POST(req: NextRequest) {
   try {
     if (!process.env.STRIPE_SECRET_KEY) {
@@ -22,6 +29,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const price = SERVICE_PRICES[service.id] ?? 75000;
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
     const session = await stripe.checkout.sessions.create({
@@ -35,7 +43,7 @@ export async function POST(req: NextRequest) {
               name: service.title,
               description: service.description,
             },
-            unit_amount: service.price,
+            unit_amount: price,
           },
           quantity: 1,
         },

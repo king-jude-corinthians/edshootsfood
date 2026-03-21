@@ -10,23 +10,33 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#2F3ECF",
-          light: "#4A5FD9",
-          dark: "#1E2A8F",
+          DEFAULT: "#C8956C",
+          light: "#D4A574",
+          dark: "#A67B5B",
+        },
+        gold: {
+          DEFAULT: "#C8956C",
+          light: "#D4A574",
+          dark: "#A67B5B",
+          muted: "rgba(200, 149, 108, 0.3)",
         },
         surface: {
-          DEFAULT: "#F2F2F4",
+          DEFAULT: "#0A0A0A",
           white: "#FFFFFF",
-          dark: "#0F1012",
+          dark: "#050505",
+          card: "#111111",
+          elevated: "#1A1A1A",
         },
         text: {
-          primary: "#0F1012",
-          muted: "#6B6B6B",
+          primary: "#FFFFFF",
+          muted: "#888888",
           light: "#F2F2F4",
+          dark: "#0F1012",
         },
         border: {
-          DEFAULT: "#E5E5E7",
-          dark: "rgba(255,255,255,0.1)",
+          DEFAULT: "rgba(255,255,255,0.08)",
+          dark: "rgba(255,255,255,0.05)",
+          light: "rgba(255,255,255,0.15)",
         },
       },
       fontFamily: {
@@ -39,9 +49,14 @@ const config: Config = {
       animation: {
         marquee: "marquee 40s linear infinite",
         "marquee-reverse": "marquee-reverse 40s linear infinite",
-        "fade-in": "fadeIn 0.6s ease-out forwards",
+        "fade-in": "fadeIn 0.8s ease-out forwards",
+        "fade-in-up": "fadeInUp 0.8s ease-out forwards",
         "slide-up": "slideUp 0.6s ease-out forwards",
         float: "float 6s ease-in-out infinite",
+        "ken-burns": "kenBurns 25s ease-in-out infinite alternate",
+        pulse: "pulse 2s ease-in-out infinite",
+        "spin-slow": "spin 12s linear infinite",
+        "slide-carousel": "slideCarousel 0.5s ease-out forwards",
       },
       keyframes: {
         marquee: {
@@ -56,6 +71,10 @@ const config: Config = {
           "0%": { opacity: "0", filter: "blur(6px)" },
           "100%": { opacity: "1", filter: "blur(0px)" },
         },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(30px)", filter: "blur(4px)" },
+          "100%": { opacity: "1", transform: "translateY(0)", filter: "blur(0px)" },
+        },
         slideUp: {
           "0%": { opacity: "0", transform: "translateY(40px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
@@ -64,6 +83,21 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
         },
+        kenBurns: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.15)" },
+        },
+        pulse: {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.7", transform: "scale(1.05)" },
+        },
+        slideCarousel: {
+          "0%": { opacity: "0", transform: "translateX(50px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },

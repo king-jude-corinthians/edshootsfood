@@ -1,16 +1,14 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 import { SERVICES } from "@/lib/constants";
-import { UtensilsCrossed, Camera, Sparkles, Image, ArrowRight } from "lucide-react";
+import { UtensilsCrossed, Camera, Sparkles, Image } from "lucide-react";
 
 const ICONS: Record<string, React.ReactNode> = {
-  utensils: <UtensilsCrossed className="w-6 h-6" />,
-  camera: <Camera className="w-6 h-6" />,
-  sparkles: <Sparkles className="w-6 h-6" />,
-  image: <Image className="w-6 h-6" />,
+  utensils: <UtensilsCrossed className="w-7 h-7" />,
+  camera: <Camera className="w-7 h-7" />,
+  sparkles: <Sparkles className="w-7 h-7" />,
+  image: <Image className="w-7 h-7" />,
 };
 
 export default function Services() {
@@ -37,7 +35,7 @@ export default function Services() {
       const htmlEl = card as HTMLElement;
       htmlEl.style.opacity = "0";
       htmlEl.style.transform = "translateY(40px)";
-      htmlEl.style.transition = `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.15}s`;
+      htmlEl.style.transition = `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 150}ms`;
       observer.observe(card);
     });
 
@@ -48,61 +46,38 @@ export default function Services() {
     <section
       ref={sectionRef}
       id="services"
-      className="bg-surface-dark text-text-light section-padding"
+      className="bg-surface-dark section-padding"
     >
       <div className="mx-auto max-w-[1400px]">
-        <SectionHeading
-          eyebrow="Services"
-          title="What I Offer"
-          subtitle="Tailored photography packages designed to elevate your brand's visual identity."
-          light
-        />
+        {/* Heading */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
+            Services
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+            What We Offer
+          </h2>
+          <p className="mt-5 text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
+            Tailored photography packages designed to elevate your brand&apos;s visual identity.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 hover-dim-group">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="service-card group rounded-2xl border border-white/10 p-8 md:p-10 hover:border-white/25 transition-all duration-300"
+              className="service-card group rounded-2xl glass p-8 hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500"
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-brand-light">
+              <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 text-gold group-hover:bg-gold/20 transition-colors duration-300">
                 {ICONS[service.icon]}
               </div>
 
-              <h3 className="text-2xl font-medium mb-3">{service.title}</h3>
-              <p className="text-text-light/60 leading-relaxed mb-6">
+              <h3 className="text-xl font-medium text-white mb-3">{service.title}</h3>
+              <p className="text-white/50 leading-relaxed text-sm">
                 {service.description}
               </p>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-8">
-                {service.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-center gap-2 text-text-light/50 text-sm"
-                  >
-                    <div className="w-1 h-1 rounded-full bg-brand-light" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Price + CTA */}
-              <div className="flex items-center justify-between pt-6 border-t border-white/10">
-                <span className="text-2xl font-medium text-brand-light">
-                  {service.priceLabel}
-                </span>
-                <a href="#contact">
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="border-white/20 text-white hover:bg-white/10"
-                  >
-                    Book Now
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </a>
-              </div>
             </div>
           ))}
         </div>

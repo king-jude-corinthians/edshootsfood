@@ -22,17 +22,17 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-white/70 backdrop-blur-xl border-b border-border"
+            ? "glass-strong"
             : "bg-transparent"
         )}
       >
         <div className="mx-auto max-w-[1400px] px-[5vw] flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 z-10">
-            <span className="text-xl font-medium tracking-tight text-text-primary">
+            <span className="text-xl font-medium tracking-tight text-white">
               ED
             </span>
-            <span className="text-xl font-light tracking-tight text-text-primary">
+            <span className="text-xl font-light tracking-tight text-white/70">
               SHOOTSFOOD
             </span>
           </Link>
@@ -43,7 +43,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-5 py-2 rounded-full text-sm font-normal text-text-primary hover:bg-surface-dark/5 transition-colors duration-200"
+                className="px-5 py-2 rounded-full text-sm font-normal text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200"
               >
                 {link.label}
               </a>
@@ -54,9 +54,9 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#contact"
-              className="px-6 py-2.5 rounded-full bg-brand text-white text-sm font-medium hover:bg-brand-dark transition-colors duration-200"
+              className="px-6 py-2.5 rounded-full glass-gold text-gold text-sm font-medium hover:bg-gold/15 transition-colors duration-200"
             >
-              Get in Touch
+              Book a Shoot
             </a>
           </div>
 
@@ -67,9 +67,9 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
-              <X className="w-6 h-6 text-text-primary" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-text-primary" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
@@ -78,7 +78,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-surface transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
+          "fixed inset-0 z-40 bg-surface/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -89,7 +89,7 @@ export default function Navbar() {
             key={link.label}
             href={link.href}
             onClick={() => setMobileOpen(false)}
-            className="text-3xl font-light text-text-primary hover:text-brand transition-colors"
+            className="text-3xl font-light text-white/80 hover:text-gold transition-colors"
           >
             {link.label}
           </a>
@@ -97,9 +97,9 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={() => setMobileOpen(false)}
-          className="mt-4 px-8 py-3 rounded-full bg-brand text-white text-lg font-medium"
+          className="mt-4 px-8 py-3 rounded-full glass-gold text-gold text-lg font-medium"
         >
-          Get in Touch
+          Book a Shoot
         </a>
       </div>
     </>

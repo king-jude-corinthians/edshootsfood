@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Button from "@/components/ui/Button";
 import { CheckCircle } from "lucide-react";
 
 export default function Subscribe() {
@@ -34,16 +33,16 @@ export default function Subscribe() {
   return (
     <section className="bg-surface section-padding-sm">
       <div className="mx-auto max-w-[600px] text-center">
-        <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-text-primary mb-4">
+        <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">
           Stay in the Loop
         </h3>
-        <p className="text-text-muted mb-8 text-base">
+        <p className="text-white/40 mb-8 text-base">
           Get behind-the-scenes content, food photography tips, and updates on
           new projects. No spam, ever.
         </p>
 
         {submitted ? (
-          <div className="flex items-center justify-center gap-3 text-brand">
+          <div className="flex items-center justify-center gap-3 text-gold">
             <CheckCircle className="w-5 h-5" />
             <span className="font-medium">You&apos;re subscribed! Check your inbox.</span>
           </div>
@@ -58,16 +57,15 @@ export default function Subscribe() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="flex-1 px-6 py-3.5 rounded-full border border-border bg-white text-text-primary text-sm placeholder:text-text-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all"
+              className="flex-1 px-6 py-3.5 rounded-full glass text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-gold/30 border border-white/10 transition-all"
             />
-            <Button
+            <button
               type="submit"
               disabled={loading}
-              variant="primary"
-              size="md"
+              className="px-7 py-3.5 rounded-full bg-gold text-white text-sm font-medium hover:bg-gold-dark transition-colors disabled:opacity-50"
             >
               {loading ? "..." : "Subscribe"}
-            </Button>
+            </button>
           </form>
         )}
       </div>

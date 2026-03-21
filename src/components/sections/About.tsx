@@ -44,56 +44,67 @@ export default function About() {
       className="bg-surface section-padding"
     >
       <div className="mx-auto max-w-[1400px]">
+        {/* Section Label */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
+            About
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+            Behind the Lens
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Image */}
+          {/* Image - B&W to Color */}
           <div className="reveal-item">
-            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-br from-brand/20 to-brand-light/30 border border-border">
+            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bw-to-color group cursor-pointer">
               {/* Placeholder for photographer portrait */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(160deg, #2d1f14 0%, #4a2c17 30%, #C8956C 60%, #1a0f08 100%)",
+                }}
+              />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 rounded-full bg-brand/20 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-4xl font-medium text-brand">ED</span>
+                  <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-xl mx-auto mb-4 flex items-center justify-center border border-white/10">
+                    <span className="text-4xl font-medium text-gold">ED</span>
                   </div>
-                  <p className="text-text-muted text-sm">Photographer Portrait</p>
+                  <p className="text-white/40 text-sm">Photographer Portrait</p>
                 </div>
+              </div>
+              {/* Hover hint */}
+              <div className="absolute bottom-6 left-6 right-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span className="text-white/60 text-xs uppercase tracking-wider">Hover for color</span>
               </div>
             </div>
           </div>
 
           {/* Content */}
           <div>
-            <span className="reveal-item inline-block px-4 py-1.5 rounded-full bg-brand/10 text-brand text-xs font-medium uppercase tracking-wider mb-6">
-              About
-            </span>
-
-            <h2 className="reveal-item text-4xl md:text-5xl font-medium tracking-tight text-text-primary leading-[1.1] mb-4">
+            <h3 className="reveal-item text-3xl md:text-4xl font-medium tracking-tight text-white leading-[1.1] mb-2">
               {ABOUT.name}
-            </h2>
+            </h3>
 
-            <p className="reveal-item text-brand font-medium text-lg mb-8">
+            <p className="reveal-item text-gold font-medium text-lg mb-8">
               {ABOUT.title}
             </p>
 
             {ABOUT.bio.map((paragraph, i) => (
               <p
                 key={i}
-                className="reveal-item text-text-muted leading-relaxed mb-4 last:mb-0"
+                className="reveal-item text-white/50 leading-relaxed mb-4 last:mb-0"
               >
                 {paragraph}
               </p>
             ))}
 
-            {/* Stats */}
-            <div className="reveal-item flex flex-wrap gap-4 mt-10 mb-10">
-              {ABOUT.stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="px-5 py-3 rounded-2xl bg-brand text-white"
-                >
-                  <div className="text-2xl font-medium">{stat.value}</div>
-                  <div className="text-xs text-white/70">{stat.label}</div>
-                </div>
-              ))}
+            {/* Signature */}
+            <div className="reveal-item mt-10 mb-10">
+              <p className="text-gold text-2xl italic font-light tracking-wide">
+                — Ezekwe Desmond
+              </p>
             </div>
 
             {/* Instagram Link */}
@@ -101,7 +112,7 @@ export default function About() {
               href={SITE.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="reveal-item inline-flex items-center gap-2 text-text-primary hover:text-brand transition-colors group"
+              className="reveal-item inline-flex items-center gap-2 text-white/60 hover:text-gold transition-colors group"
             >
               <Instagram className="w-5 h-5" />
               <span className="text-sm font-medium">@edshootsfood</span>

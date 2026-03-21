@@ -1,65 +1,133 @@
 "use client";
 
+import { useState, useRef, useEffect, useCallback } from "react";
 import { TESTIMONIALS } from "@/lib/constants";
-import SectionHeading from "@/components/ui/SectionHeading";
-import { Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
-function TestimonialCard({
-  quote,
-  name,
-  company,
-  role,
-}: (typeof TESTIMONIALS)[number]) {
+function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex-shrink-0 w-[380px] md:w-[440px] p-8 rounded-2xl bg-white border border-border mx-3">
-      <Quote className="w-8 h-8 text-brand/20 mb-4" />
-      <p className="text-text-primary leading-relaxed mb-6 text-[15px]">
-        &ldquo;{quote}&rdquo;
-      </p>
-      <div>
-        <p className="font-medium text-text-primary text-sm">{name}</p>
-        <p className="text-text-muted text-xs">
-          {role}, {company}
-        </p>
-      </div>
+    <div className="flex gap-1 mb-4">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`w-4 h-4 ${
+            i < rating ? "text-gold fill-gold" : "text-white/20"
+          }`}
+        />
+      ))}
     </div>
   );
 }
 
 export default function Testimonials() {
-  const items = [...TESTIMONIALS, ...TESTIMONIALS];
+  const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setCurrent(index);
+      setTimeout(() => setIsAnimating(false), 500);
+    },
+    [isAnimating]
+  );
+
+  const next = useCallback(() => {
+    goTo((current + 1) % TESTIMONIALS.length);
+  }, [current, goTo]);
+
+  const prev = useCallback(() => {
+    goTo((current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  }, [current, goTo]);
+
+  // Auto-advance
+  useEffect(() => {
+    intervalRef.current = setInterval(next, 5000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [next]);
+
+  const resetInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(next, 5000);
+  };
 
   return (
-    <section className="bg-white section-padding overflow-hidden">
+    <section id="testimonials" className="bg-surface section-padding overflow-hidden">
       <div className="mx-auto max-w-[1400px]">
-        <SectionHeading
-          eyebrow="Testimonials"
-          title="Client Stories"
-          subtitle="Hear from the brands and restaurants I've had the pleasure of working with."
-        />
-      </div>
+        {/* Heading */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
+            Testimonials
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+            Trusted by Brands
+            <br />
+            <span className="text-gold">&amp; Restaurants</span>
+          </h2>
+        </div>
 
-      {/* Marquee Row 1 */}
-      <div className="relative group">
-        <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
-          {items.map((testimonial, i) => (
-            <TestimonialCard key={`r1-${i}`} {...testimonial} />
-          ))}
+        {/* Carousel */}
+        <div className="max-w-3xl mx-auto">
+          <div className="relative">
+            {/* Card */}
+            <div
+              key={current}
+              className="glass-strong rounded-3xl p-10 md:p-14 text-center animate-slide-carousel"
+            >
+              <Quote className="w-10 h-10 text-gold/30 mx-auto mb-6" />
+
+              <StarRating rating={TESTIMONIALS[current].rating} />
+
+              <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto">
+                &ldquo;{TESTIMONIALS[current].quote}&rdquo;
+              </p>
+
+              <div>
+                <p className="font-medium text-white text-base">
+                  {TESTIMONIALS[current].name}
+                </p>
+                <p className="text-white/40 text-sm mt-1">
+                  {TESTIMONIALS[current].role}, {TESTIMONIALS[current].company}
+                </p>
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-center gap-4 mt-10">
+              <button
+                onClick={() => { prev(); resetInterval(); }}
+                className="p-3 rounded-full glass text-white/60 hover:text-white transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Dots */}
+              <div className="flex gap-2">
+                {TESTIMONIALS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { goTo(i); resetInterval(); }}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i === current ? "w-8 bg-gold" : "bg-white/20 hover:bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => { next(); resetInterval(); }}
+                className="p-3 rounded-full glass text-white/60 hover:text-white transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Marquee Row 2 (reverse) */}
-      <div className="relative mt-6 group">
-        <div className="flex animate-marquee-reverse group-hover:[animation-play-state:paused]">
-          {[...items].reverse().map((testimonial, i) => (
-            <TestimonialCard key={`r2-${i}`} {...testimonial} />
-          ))}
-        </div>
-      </div>
-
-      {/* Edge fades */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
     </section>
   );
 }
