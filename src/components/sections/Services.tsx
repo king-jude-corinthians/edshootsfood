@@ -3,12 +3,20 @@
 import { useRef, useEffect } from "react";
 import { SERVICES } from "@/lib/constants";
 import { UtensilsCrossed, Camera, Sparkles, Image } from "lucide-react";
+import { EvervaultCard, Icon } from "@/components/ui/evervault-card";
 
 const ICONS: Record<string, React.ReactNode> = {
   utensils: <UtensilsCrossed className="w-7 h-7" />,
   camera: <Camera className="w-7 h-7" />,
   sparkles: <Sparkles className="w-7 h-7" />,
   image: <Image className="w-7 h-7" />,
+};
+
+const CARD_TEXTS: Record<string, string> = {
+  "food-photography": "Food",
+  "product-shoots": "Product",
+  "social-media": "Social",
+  "brand-campaigns": "Brand",
 };
 
 export default function Services() {
@@ -67,17 +75,31 @@ export default function Services() {
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="service-card group rounded-2xl glass p-8 hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500"
+              className="service-card group relative border border-white/[0.1] flex flex-col items-start rounded-2xl glass p-0 overflow-hidden hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 text-gold group-hover:bg-gold/20 transition-colors duration-300">
-                {ICONS[service.icon]}
+              {/* Corner Icons */}
+              <Icon className="absolute h-5 w-5 -top-2.5 -left-2.5 text-white/20" />
+              <Icon className="absolute h-5 w-5 -bottom-2.5 -left-2.5 text-white/20" />
+              <Icon className="absolute h-5 w-5 -top-2.5 -right-2.5 text-white/20" />
+              <Icon className="absolute h-5 w-5 -bottom-2.5 -right-2.5 text-white/20" />
+
+              {/* Evervault Card Effect */}
+              <div className="w-full h-[200px]">
+                <EvervaultCard text={CARD_TEXTS[service.id] ?? service.title} />
               </div>
 
-              <h3 className="text-xl font-medium text-white mb-3">{service.title}</h3>
-              <p className="text-white/50 leading-relaxed text-sm">
-                {service.description}
-              </p>
+              {/* Content */}
+              <div className="px-6 pb-6 pt-2 w-full">
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4 text-gold group-hover:bg-gold/20 transition-colors duration-300">
+                  {ICONS[service.icon]}
+                </div>
+
+                <h3 className="text-lg font-medium text-white mb-2">{service.title}</h3>
+                <p className="text-white/40 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
