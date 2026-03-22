@@ -17,7 +17,7 @@ export default function Footer() {
                 alt="ED"
                 width={44}
                 height={44}
-                className="h-9 w-auto"
+                className="h-12 w-auto"
               />
               <span className="text-xl font-light tracking-wide text-white/80">
                 SHOOTSFOOD

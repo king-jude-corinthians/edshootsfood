@@ -35,7 +35,7 @@ export default function Navbar() {
               alt="ED"
               width={40}
               height={40}
-              className="h-8 md:h-9 w-auto"
+              className="h-10 md:h-12 w-auto"
               priority
             />
             <span className="text-lg md:text-xl font-light tracking-wide text-white/80">
