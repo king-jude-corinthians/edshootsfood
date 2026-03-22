@@ -91,17 +91,17 @@ export default function PortfolioShowcase() {
 
   return (
     <>
-      <section ref={sectionRef} id="portfolio" className="bg-surface section-padding">
+      <section ref={sectionRef} id="portfolio" className="bg-[var(--color-bg)] section-padding">
         <div className="mx-auto max-w-[1400px]">
           {/* Heading */}
           <div className="text-center mb-16 md:mb-20">
             <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
               Portfolio
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
               Selected Work
             </h2>
-            <p className="mt-5 text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-5 text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
               A curated collection of culinary stories, crafted with precision and passion.
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function PortfolioShowcase() {
                 className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeFilter === category
                     ? "glass-gold text-gold"
-                    : "glass text-white/50 hover:text-white/80"
+                    : "glass text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                 }`}
               >
                 {category}
@@ -164,7 +164,6 @@ export default function PortfolioShowcase() {
           className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center"
           onClick={closeLightbox}
         >
-          {/* Close button */}
           <button
             onClick={closeLightbox}
             className="absolute top-6 right-6 p-3 rounded-full glass text-white/80 hover:text-white transition-colors z-10"
@@ -172,7 +171,6 @@ export default function PortfolioShowcase() {
             <X className="w-6 h-6" />
           </button>
 
-          {/* Navigation */}
           <button
             onClick={(e) => { e.stopPropagation(); navigateLightbox("prev"); }}
             className="absolute left-4 md:left-8 p-3 rounded-full glass text-white/80 hover:text-white transition-colors z-10"
@@ -186,7 +184,6 @@ export default function PortfolioShowcase() {
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Image */}
           <div
             className="relative max-w-4xl max-h-[80vh] w-full mx-8 rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
@@ -205,7 +202,6 @@ export default function PortfolioShowcase() {
             </div>
           </div>
 
-          {/* Counter */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 text-sm">
             {lightboxIndex + 1} / {filteredItems.length}
           </div>

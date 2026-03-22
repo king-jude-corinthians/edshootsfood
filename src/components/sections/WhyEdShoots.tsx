@@ -43,14 +43,14 @@ export default function WhyEdShoots() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-surface section-padding">
+    <section ref={sectionRef} className="bg-[var(--color-bg)] section-padding">
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
           <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Why Us
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
             Why <span className="text-gold">EdShoots</span>
           </h2>
         </div>
@@ -65,8 +65,8 @@ export default function WhyEdShoots() {
               <div className="w-16 h-16 rounded-2xl glass mx-auto mb-6 flex items-center justify-center text-gold group-hover:bg-gold/10 transition-colors duration-300">
                 {ICONS[item.icon]}
               </div>
-              <h3 className="text-white font-medium text-lg mb-2">{item.title}</h3>
-              <p className="text-white/40 text-sm leading-relaxed">{item.description}</p>
+              <h3 className="text-[var(--color-text)] font-medium text-lg mb-2">{item.title}</h3>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>

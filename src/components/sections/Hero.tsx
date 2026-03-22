@@ -2,12 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowDown } from "lucide-react";
+import { useChat } from "@/components/providers/ChatProvider";
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLSpanElement>(null);
+  const { openChat } = useChat();
 
   useEffect(() => {
     const els = [badgeRef.current, headingRef.current, subtitleRef.current, ctaRef.current];
@@ -82,11 +84,12 @@ export default function Hero() {
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contact">
-            <button className="px-10 py-4 rounded-full glass-gold text-white font-medium text-base hover:bg-gold/20 transition-all duration-300 backdrop-blur-xl btn-glow">
-              Book a Shoot
-            </button>
-          </a>
+          <button
+            onClick={() => openChat("I want to book a food shoot")}
+            className="px-10 py-4 rounded-full glass-gold text-white font-medium text-base hover:bg-gold/20 transition-all duration-300 backdrop-blur-xl btn-glow"
+          >
+            Book a Shoot
+          </button>
           <a href="#portfolio">
             <button className="px-10 py-4 rounded-full border border-white/20 text-white font-medium text-base hover:bg-white/10 transition-all duration-300 backdrop-blur-xl">
               View Portfolio

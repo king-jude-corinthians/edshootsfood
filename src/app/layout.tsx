@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import ThemeProvider from "@/components/providers/ThemeProvider";
+import ChatProvider from "@/components/providers/ChatProvider";
 import { SITE } from "@/lib/constants";
 
 const inter = Inter({
@@ -29,14 +31,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="antialiased bg-[#0A0A0A]">
-        <SmoothScroll>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
-        <div className="grain-overlay" />
+    <html lang="en" className={`${inter.variable} dark`} suppressHydrationWarning>
+      <body className="antialiased bg-[#0A0A0A] light:bg-white transition-colors duration-500">
+        <ThemeProvider>
+          <ChatProvider>
+            <SmoothScroll>
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </SmoothScroll>
+            <div className="grain-overlay" />
+          </ChatProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

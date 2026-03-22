@@ -2,27 +2,29 @@
 
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { SITE } from "@/lib/constants";
+
+const WHATSAPP_NUMBER = "+2348089591880";
+const WHATSAPP_MESSAGE = "Hi! I'm interested in booking a food photography session.";
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const openWhatsApp = () => {
-    const encoded = encodeURIComponent(SITE.whatsappMessage);
+    const encoded = encodeURIComponent(WHATSAPP_MESSAGE);
     window.open(
-      `https://wa.me/${SITE.whatsapp.replace(/[^0-9]/g, "")}?text=${encoded}`,
+      `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}?text=${encoded}`,
       "_blank"
     );
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 left-6 z-50">
       {/* Tooltip */}
       {showTooltip && (
-        <div className="absolute bottom-full right-0 mb-3 whitespace-nowrap">
-          <div className="glass-strong rounded-xl px-4 py-2.5 text-white text-sm">
+        <div className="absolute bottom-full left-0 mb-3 whitespace-nowrap">
+          <div className="glass-strong rounded-xl px-4 py-2.5 text-[var(--color-text)] text-sm">
             Let&apos;s discuss your shoot
-            <div className="absolute bottom-0 right-6 translate-y-1/2 rotate-45 w-2 h-2 glass-strong" />
+            <div className="absolute bottom-0 left-6 translate-y-1/2 rotate-45 w-2 h-2 glass-strong" />
           </div>
         </div>
       )}

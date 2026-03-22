@@ -6,6 +6,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,7 +39,7 @@ export default function Navbar() {
               className="h-12 md:h-14 w-auto"
               priority
             />
-            <span className="text-lg md:text-xl font-light tracking-wide text-white/80">
+            <span className="text-lg md:text-xl font-light tracking-wide text-white/80 dark:text-white/80">
               SHOOTSFOOD
             </span>
           </Link>
@@ -49,15 +50,16 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-5 py-2 rounded-full text-sm font-normal text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200"
+                className="px-5 py-2 rounded-full text-sm font-normal text-white/60 hover:text-white hover:bg-white/5 dark:text-white/60 dark:hover:text-white dark:hover:bg-white/5 transition-all duration-200"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* CTA */}
+          {/* CTA + Theme Toggle */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <a
               href="#contact"
               className="px-6 py-2.5 rounded-full glass-gold text-gold text-sm font-medium hover:bg-gold/15 transition-colors duration-200"
@@ -67,24 +69,27 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden z-10 p-2"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? (
-              <X className="w-6 h-6 text-white" />
-            ) : (
-              <Menu className="w-6 h-6 text-white" />
-            )}
-          </button>
+          <div className="flex items-center gap-2 md:hidden z-10">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <X className="w-6 h-6 text-white dark:text-white" />
+              ) : (
+                <Menu className="w-6 h-6 text-white dark:text-white" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-surface/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
+          "fixed inset-0 z-40 bg-surface/95 dark:bg-surface/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"

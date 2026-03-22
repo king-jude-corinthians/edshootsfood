@@ -54,7 +54,7 @@ export default function Services() {
     <section
       ref={sectionRef}
       id="services"
-      className="bg-surface-dark section-padding"
+      className="bg-[var(--color-bg-dark)] section-padding"
     >
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
@@ -62,10 +62,10 @@ export default function Services() {
           <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Services
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
             What We Offer
           </h2>
-          <p className="mt-5 text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
             Tailored photography packages designed to elevate your brand&apos;s visual identity.
           </p>
         </div>
@@ -75,13 +75,13 @@ export default function Services() {
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="service-card group relative border border-white/[0.1] flex flex-col items-start rounded-2xl glass p-0 overflow-hidden hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500"
+              className="service-card group relative border border-[var(--color-border)] flex flex-col items-start rounded-2xl glass p-0 overflow-hidden hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500"
             >
               {/* Corner Icons */}
-              <Icon className="absolute h-5 w-5 -top-2.5 -left-2.5 text-white/20" />
-              <Icon className="absolute h-5 w-5 -bottom-2.5 -left-2.5 text-white/20" />
-              <Icon className="absolute h-5 w-5 -top-2.5 -right-2.5 text-white/20" />
-              <Icon className="absolute h-5 w-5 -bottom-2.5 -right-2.5 text-white/20" />
+              <Icon className="absolute h-5 w-5 -top-2.5 -left-2.5 text-[var(--color-text-muted)]" />
+              <Icon className="absolute h-5 w-5 -bottom-2.5 -left-2.5 text-[var(--color-text-muted)]" />
+              <Icon className="absolute h-5 w-5 -top-2.5 -right-2.5 text-[var(--color-text-muted)]" />
+              <Icon className="absolute h-5 w-5 -bottom-2.5 -right-2.5 text-[var(--color-text-muted)]" />
 
               {/* Evervault Card Effect */}
               <div className="w-full h-[200px]">
@@ -90,13 +90,12 @@ export default function Services() {
 
               {/* Content */}
               <div className="px-6 pb-6 pt-2 w-full">
-                {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4 text-gold group-hover:bg-gold/20 transition-colors duration-300">
                   {ICONS[service.icon]}
                 </div>
 
-                <h3 className="text-lg font-medium text-white mb-2">{service.title}</h3>
-                <p className="text-white/40 leading-relaxed text-sm">
+                <h3 className="text-lg font-medium text-[var(--color-text)] mb-2">{service.title}</h3>
+                <p className="text-[var(--color-text-muted)] leading-relaxed text-sm">
                   {service.description}
                 </p>
               </div>

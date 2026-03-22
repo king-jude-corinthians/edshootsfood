@@ -41,7 +41,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="bg-surface section-padding"
+      className="bg-[var(--color-bg)] section-padding"
     >
       <div className="mx-auto max-w-[1400px]">
         {/* Section Label */}
@@ -49,7 +49,7 @@ export default function About() {
           <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             About
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
             Behind the Lens
           </h2>
         </div>
@@ -58,7 +58,6 @@ export default function About() {
           {/* Image - B&W to Color */}
           <div className="reveal-item">
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bw-to-color group cursor-pointer">
-              {/* Placeholder for photographer portrait */}
               <div
                 className="absolute inset-0"
                 style={{
@@ -74,7 +73,6 @@ export default function About() {
                   <p className="text-white/40 text-sm">Photographer Portrait</p>
                 </div>
               </div>
-              {/* Hover hint */}
               <div className="absolute bottom-6 left-6 right-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <span className="text-white/60 text-xs uppercase tracking-wider">Hover for color</span>
               </div>
@@ -83,7 +81,7 @@ export default function About() {
 
           {/* Content */}
           <div>
-            <h3 className="reveal-item text-3xl md:text-4xl font-medium tracking-tight text-white leading-[1.1] mb-2">
+            <h3 className="reveal-item text-3xl md:text-4xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1] mb-2">
               {ABOUT.name}
             </h3>
 
@@ -94,7 +92,7 @@ export default function About() {
             {ABOUT.bio.map((paragraph, i) => (
               <p
                 key={i}
-                className="reveal-item text-white/50 leading-relaxed mb-4 last:mb-0"
+                className="reveal-item text-[var(--color-text-muted)] leading-relaxed mb-4 last:mb-0"
               >
                 {paragraph}
               </p>
@@ -112,7 +110,7 @@ export default function About() {
               href={SITE.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="reveal-item inline-flex items-center gap-2 text-white/60 hover:text-gold transition-colors group"
+              className="reveal-item inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-gold transition-colors group"
             >
               <Instagram className="w-5 h-5" />
               <span className="text-sm font-medium">@edshootsfood</span>

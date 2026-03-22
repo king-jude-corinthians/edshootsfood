@@ -9,6 +9,7 @@ import ClientTrust from "@/components/sections/ClientTrust";
 import Inquiry from "@/components/sections/Inquiry";
 import Subscribe from "@/components/sections/Subscribe";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import ChatWidget from "@/components/chat/ChatWidget";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Inquiry />
       <Subscribe />
       <WhatsAppButton />
+      <ChatWidget />
     </>
   );
 }

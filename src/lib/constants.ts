@@ -6,7 +6,7 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   instagram: "https://www.instagram.com/edshootsfood",
   email: "hello@edshootsfood.com",
-  whatsapp: "+1234567890",
+  whatsapp: "+2348089591880",
   whatsappMessage: "Hi! I'm interested in booking a food photography session.",
 };
 

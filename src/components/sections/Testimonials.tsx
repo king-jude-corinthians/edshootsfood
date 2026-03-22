@@ -11,7 +11,7 @@ function StarRating({ rating }: { rating: number }) {
         <Star
           key={i}
           className={`w-4 h-4 ${
-            i < rating ? "text-gold fill-gold" : "text-white/20"
+            i < rating ? "text-gold fill-gold" : "text-[var(--color-text-muted)]"
           }`}
         />
       ))}
@@ -42,7 +42,6 @@ export default function Testimonials() {
     goTo((current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
   }, [current, goTo]);
 
-  // Auto-advance
   useEffect(() => {
     intervalRef.current = setInterval(next, 5000);
     return () => {
@@ -56,14 +55,14 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="bg-surface section-padding overflow-hidden">
+    <section id="testimonials" className="bg-[var(--color-bg)] section-padding overflow-hidden">
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
           <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
             Trusted by Brands
             <br />
             <span className="text-gold">&amp; Restaurants</span>
@@ -73,24 +72,20 @@ export default function Testimonials() {
         {/* Carousel */}
         <div className="max-w-3xl mx-auto">
           <div className="relative">
-            {/* Card */}
             <div
               key={current}
               className="glass-strong rounded-3xl p-10 md:p-14 text-center animate-slide-carousel"
             >
               <Quote className="w-10 h-10 text-gold/30 mx-auto mb-6" />
-
               <StarRating rating={TESTIMONIALS[current].rating} />
-
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto">
+              <p className="text-[var(--color-text)] opacity-80 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto">
                 &ldquo;{TESTIMONIALS[current].quote}&rdquo;
               </p>
-
               <div>
-                <p className="font-medium text-white text-base">
+                <p className="font-medium text-[var(--color-text)] text-base">
                   {TESTIMONIALS[current].name}
                 </p>
-                <p className="text-white/40 text-sm mt-1">
+                <p className="text-[var(--color-text-muted)] text-sm mt-1">
                   {TESTIMONIALS[current].role}, {TESTIMONIALS[current].company}
                 </p>
               </div>
@@ -100,19 +95,18 @@ export default function Testimonials() {
             <div className="flex items-center justify-center gap-4 mt-10">
               <button
                 onClick={() => { prev(); resetInterval(); }}
-                className="p-3 rounded-full glass text-white/60 hover:text-white transition-colors"
+                className="p-3 rounded-full glass text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              {/* Dots */}
               <div className="flex gap-2">
                 {TESTIMONIALS.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => { goTo(i); resetInterval(); }}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i === current ? "w-8 bg-gold" : "bg-white/20 hover:bg-white/40"
+                      i === current ? "w-8 bg-gold" : "bg-[var(--color-border)] hover:bg-[var(--color-text-muted)]"
                     }`}
                   />
                 ))}
@@ -120,7 +114,7 @@ export default function Testimonials() {
 
               <button
                 onClick={() => { next(); resetInterval(); }}
-                className="p-3 rounded-full glass text-white/60 hover:text-white transition-colors"
+                className="p-3 rounded-full glass text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

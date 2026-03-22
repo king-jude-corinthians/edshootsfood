@@ -40,14 +40,14 @@ export default function ClientTrust() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-surface-dark section-padding">
+    <section ref={sectionRef} className="bg-[var(--color-bg-dark)] section-padding">
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
           <span className="trust-reveal inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Clients
           </span>
-          <h2 className="trust-reveal text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+          <h2 className="trust-reveal text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
             Worked With
           </h2>
         </div>
@@ -60,10 +60,10 @@ export default function ClientTrust() {
               className="trust-reveal logo-grayscale flex items-center justify-center p-6 rounded-2xl glass aspect-[3/2] cursor-pointer group"
             >
               <div className="text-center">
-                <span className="text-2xl font-medium text-white/70 group-hover:text-gold transition-colors duration-300">
+                <span className="text-2xl font-medium text-[var(--color-text)] opacity-70 group-hover:text-gold transition-colors duration-300">
                   {client.initials}
                 </span>
-                <p className="text-white/30 text-[10px] mt-1 uppercase tracking-wider group-hover:text-white/60 transition-colors duration-300">
+                <p className="text-[var(--color-text-muted)] text-[10px] mt-1 uppercase tracking-wider group-hover:opacity-80 transition-colors duration-300">
                   {client.name}
                 </p>
               </div>
@@ -78,7 +78,7 @@ export default function ClientTrust() {
               <div className="text-5xl md:text-6xl font-medium text-gold mb-2">
                 {stat.value}
               </div>
-              <div className="text-white/40 text-sm uppercase tracking-wider">
+              <div className="text-[var(--color-text-muted)] text-sm uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>
