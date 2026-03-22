@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
@@ -28,13 +29,15 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-[1400px] px-[5vw] flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-10">
-            <span className="text-xl font-medium tracking-tight text-white">
-              ED
-            </span>
-            <span className="text-xl font-light tracking-tight text-white/70">
-              SHOOTSFOOD
-            </span>
+          <Link href="/" className="flex items-center z-10">
+            <Image
+              src="/images/logo.png"
+              alt="EdShootsFood"
+              width={160}
+              height={40}
+              className="h-9 md:h-10 w-auto brightness-0 invert"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

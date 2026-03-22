@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 import { Instagram, Mail, ArrowUpRight } from "lucide-react";
 
@@ -10,9 +11,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-16">
           {/* Brand */}
           <div className="max-w-md">
-            <Link href="/" className="inline-flex items-center gap-2 mb-6">
-              <span className="text-2xl font-medium text-white">ED</span>
-              <span className="text-2xl font-light text-white/60">SHOOTSFOOD</span>
+            <Link href="/" className="inline-block mb-6">
+              <Image
+                src="/images/logo.png"
+                alt="EdShootsFood"
+                width={180}
+                height={45}
+                className="h-10 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-white/40 text-base leading-relaxed">
               Premium food photography by Ezekwe Desmond. Elevating brands
