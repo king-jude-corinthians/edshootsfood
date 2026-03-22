@@ -37,6 +37,16 @@ export default function Hero() {
         isLight ? "bg-[#F0F2FF]" : "bg-black"
       }`}
     >
+      {/* Fallback gradient (behind video) */}
+      <div
+        className="absolute inset-0 z-0 transition-opacity duration-500"
+        style={{
+          background: isLight
+            ? "linear-gradient(135deg, #E8EBFF 0%, #F0F2FF 25%, #FFFFFF 50%, #F0F2FF 75%, #E8EBFF 100%)"
+            : "linear-gradient(135deg, #0a0d1a 0%, #070912 25%, #111 50%, #070912 75%, #0a0d1a 100%)",
+        }}
+      />
+
       {/* Video Background with Ken Burns */}
       <div className="absolute inset-0 z-0 ken-burns">
         <video
@@ -44,22 +54,13 @@ export default function Hero() {
           muted
           loop
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
             isLight ? "opacity-20" : "opacity-100"
           }`}
           poster="/images/hero-poster.jpg"
         >
           <source src="/videos/hero-reel.mp4" type="video/mp4" />
         </video>
-        {/* Fallback gradient */}
-        <div
-          className="absolute inset-0 transition-opacity duration-500"
-          style={{
-            background: isLight
-              ? "linear-gradient(135deg, #E8EBFF 0%, #F0F2FF 25%, #FFFFFF 50%, #F0F2FF 75%, #E8EBFF 100%)"
-              : "linear-gradient(135deg, #0a0d1a 0%, #070912 25%, #111 50%, #070912 75%, #0a0d1a 100%)",
-          }}
-        />
       </div>
 
       {/* Overlays */}
