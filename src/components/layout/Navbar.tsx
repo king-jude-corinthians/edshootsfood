@@ -39,7 +39,7 @@ export default function Navbar() {
               className="h-12 md:h-14 w-auto"
               priority
             />
-            <span className="text-lg md:text-xl font-light tracking-wide text-white/80 dark:text-white/80">
+            <span className="text-lg md:text-xl font-light tracking-wide text-[var(--color-text)] opacity-80">
               SHOOTSFOOD
             </span>
           </Link>
@@ -50,7 +50,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-5 py-2 rounded-full text-sm font-normal text-white/60 hover:text-white hover:bg-white/5 dark:text-white/60 dark:hover:text-white dark:hover:bg-white/5 transition-all duration-200"
+                className="px-5 py-2 rounded-full text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-border)] transition-all duration-200"
               >
                 {link.label}
               </a>
@@ -77,9 +77,9 @@ export default function Navbar() {
               aria-label="Toggle menu"
             >
               {mobileOpen ? (
-                <X className="w-6 h-6 text-white dark:text-white" />
+                <X className="w-6 h-6 text-[var(--color-text)]" />
               ) : (
-                <Menu className="w-6 h-6 text-white dark:text-white" />
+                <Menu className="w-6 h-6 text-[var(--color-text)]" />
               )}
             </button>
           </div>
@@ -89,7 +89,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-surface/95 dark:bg-surface/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
+          "fixed inset-0 z-40 bg-[var(--color-bg)]/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -100,7 +100,7 @@ export default function Navbar() {
             key={link.label}
             href={link.href}
             onClick={() => setMobileOpen(false)}
-            className="text-3xl font-light text-white/80 hover:text-gold transition-colors"
+            className="text-3xl font-light text-[var(--color-text)] opacity-80 hover:text-gold transition-colors"
           >
             {link.label}
           </a>
