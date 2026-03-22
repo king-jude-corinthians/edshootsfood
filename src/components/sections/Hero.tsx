@@ -47,15 +47,15 @@ export default function Hero() {
         }}
       />
 
-      {/* Video Background with Ken Burns */}
-      <div className="absolute inset-0 z-0 ken-burns">
+      {/* Video Background — no Ken Burns to preserve content */}
+      <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
           playsInline
           className={`w-full h-full object-cover transition-opacity duration-500 ${
-            isLight ? "opacity-20" : "opacity-100"
+            isLight ? "opacity-60" : "opacity-100"
           }`}
           poster="/images/hero-poster.jpg"
         >
@@ -67,21 +67,21 @@ export default function Hero() {
       <div
         className={`absolute inset-0 z-[1] transition-opacity duration-500 ${
           isLight
-            ? "bg-gradient-to-b from-white/60 via-white/30 to-white/70"
+            ? "bg-gradient-to-b from-white/40 via-white/10 to-white/50"
             : "bg-gradient-to-b from-black/70 via-black/50 to-black/80"
         }`}
       />
       <div
         className={`absolute inset-0 z-[1] transition-opacity duration-500 ${
           isLight
-            ? "bg-gradient-to-r from-white/20 via-transparent to-white/20"
+            ? "bg-gradient-to-r from-white/10 via-transparent to-white/10"
             : "bg-gradient-to-r from-black/30 via-transparent to-black/30"
         }`}
       />
       {/* Blue tone gradient accent */}
       <div
         className={`absolute inset-0 z-[1] bg-gradient-to-tr from-[#2F3CCF]/20 via-transparent to-transparent ${
-          isLight ? "opacity-30" : "opacity-20"
+          isLight ? "opacity-15" : "opacity-20"
         }`}
       />
 
