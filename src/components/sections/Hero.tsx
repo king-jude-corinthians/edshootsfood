@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowDown } from "lucide-react";
 import { useChat } from "@/components/providers/ChatProvider";
 import { useTheme } from "@/components/providers/ThemeProvider";
 
@@ -139,23 +138,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center gap-2 animate-bounce">
-          <span
-            className={`text-xs uppercase tracking-widest transition-colors duration-500 ${
-              isLight ? "text-[#111111]/30" : "text-white/30"
-            }`}
-          >
-            Scroll
-          </span>
-          <ArrowDown
-            className={`w-4 h-4 transition-colors duration-500 ${
-              isLight ? "text-[#111111]/30" : "text-white/30"
-            }`}
-          />
-        </div>
-      </div>
     </section>
   );
 }
