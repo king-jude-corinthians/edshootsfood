@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { ABOUT, SITE } from "@/lib/constants";
 import { Instagram, ArrowUpRight } from "lucide-react";
 
@@ -58,24 +59,15 @@ export default function About() {
           {/* Image - B&W to Color */}
           <div className="reveal-item">
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bw-to-color group cursor-pointer">
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(160deg, #141833 0%, #1c2463 30%, #4A5FE3 60%, #0a0d1a 100%)",
-                }}
+              <Image
+                src="/images/about-portrait.jpg"
+                alt="Ezekwe Desmond — Food Photographer"
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-xl mx-auto mb-4 flex items-center justify-center border border-white/10">
-                    <span className="text-4xl font-medium text-gold">ED</span>
-                  </div>
-                  <p className="text-white/40 text-sm">Photographer Portrait</p>
-                </div>
-              </div>
-              <div className="absolute bottom-6 left-6 right-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-white/60 text-xs uppercase tracking-wider">Hover for color</span>
-              </div>
+              {/* Subtle overlay for text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
 
