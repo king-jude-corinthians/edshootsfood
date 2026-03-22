@@ -29,15 +29,18 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-[1400px] px-[5vw] flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center z-10">
+          <Link href="/" className="flex items-center gap-2 z-10">
             <Image
-              src="/images/logo.png"
-              alt="EdShootsFood"
-              width={160}
+              src="/images/logo-icon.png"
+              alt="ED"
+              width={40}
               height={40}
-              className="h-9 md:h-10 w-auto brightness-0 invert"
+              className="h-8 md:h-9 w-auto"
               priority
             />
+            <span className="text-lg md:text-xl font-light tracking-wide text-white/80">
+              SHOOTSFOOD
+            </span>
           </Link>
 
           {/* Desktop Nav */}

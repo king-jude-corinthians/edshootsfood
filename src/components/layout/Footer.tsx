@@ -11,14 +11,17 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-16">
           {/* Brand */}
           <div className="max-w-md">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-6">
               <Image
-                src="/images/logo.png"
-                alt="EdShootsFood"
-                width={180}
-                height={45}
-                className="h-10 w-auto brightness-0 invert"
+                src="/images/logo-icon.png"
+                alt="ED"
+                width={44}
+                height={44}
+                className="h-9 w-auto"
               />
+              <span className="text-xl font-light tracking-wide text-white/80">
+                SHOOTSFOOD
+              </span>
             </Link>
             <p className="text-white/40 text-base leading-relaxed">
               Premium food photography by Ezekwe Desmond. Elevating brands
