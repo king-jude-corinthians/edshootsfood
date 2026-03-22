@@ -30,16 +30,16 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-[1400px] px-[5vw] flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-10">
+          <Link href="/" className="flex items-center gap-2 z-10 group">
             <Image
               src="/images/logo-icon.png"
               alt="ED"
               width={56}
               height={56}
-              className="h-12 md:h-14 w-auto"
+              className="h-12 md:h-14 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(47,60,207,0.6)] group-hover:scale-105"
               priority
             />
-            <span className="text-lg md:text-xl font-light tracking-wide text-[var(--color-text)] opacity-80">
+            <span className="text-lg md:text-xl font-light tracking-wide text-[var(--color-text)] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:text-gold">
               SHOOTSFOOD
             </span>
           </Link>

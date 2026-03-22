@@ -5,25 +5,25 @@ import { Instagram, Mail, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-[var(--color-bg-dark)] transition-colors duration-500">
       <div className="mx-auto max-w-[1400px] px-[5vw] py-20 md:py-28">
         {/* Top */}
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-16">
           {/* Brand */}
           <div className="max-w-md">
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-6">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
               <Image
                 src="/images/logo-icon.png"
                 alt="ED"
                 width={56}
                 height={56}
-                className="h-14 w-auto"
+                className="h-14 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(47,60,207,0.6)] group-hover:scale-105"
               />
-              <span className="text-xl font-light tracking-wide text-white/80">
+              <span className="text-xl font-light tracking-wide text-[var(--color-text)] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:text-gold">
                 SHOOTSFOOD
               </span>
             </Link>
-            <p className="text-white/40 text-base leading-relaxed">
+            <p className="text-[var(--color-text-muted)] text-base leading-relaxed">
               Premium food photography by Ezekwe Desmond. Elevating brands
               through stunning culinary visuals.
             </p>
@@ -40,7 +40,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-white/50 hover:text-gold transition-colors text-sm"
+                      className="text-[var(--color-text-muted)] hover:text-gold transition-colors text-sm"
                     >
                       {link.label}
                     </a>
@@ -58,7 +58,7 @@ export default function Footer() {
                     href={SITE.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/50 hover:text-gold transition-colors text-sm"
+                    className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-gold transition-colors text-sm"
                   >
                     <Instagram className="w-4 h-4" />
                     Instagram
@@ -68,7 +68,7 @@ export default function Footer() {
                 <li>
                   <a
                     href={`mailto:${SITE.email}`}
-                    className="flex items-center gap-2 text-white/50 hover:text-gold transition-colors text-sm"
+                    className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-gold transition-colors text-sm"
                   >
                     <Mail className="w-4 h-4" />
                     Email
@@ -80,12 +80,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-sm">
+        <div className="border-t border-[var(--color-border)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[var(--color-text-muted)] opacity-60 text-sm">
             &copy; {new Date().getFullYear()} EdShootsFood. All rights
             reserved.
           </p>
-          <p className="text-white/20 text-xs">
+          <p className="text-[var(--color-text-muted)] opacity-40 text-xs">
             Crafted with precision
           </p>
         </div>
