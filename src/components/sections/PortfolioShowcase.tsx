@@ -11,18 +11,18 @@ const ASPECT_MAP: Record<string, string> = {
 };
 
 const GRADIENT_MAP: Record<string, string> = {
-  "1": "linear-gradient(135deg, #2d1f14 0%, #4a2c17 50%, #1a0f08 100%)",
-  "2": "linear-gradient(135deg, #1a2332 0%, #2c3e50 50%, #0f1923 100%)",
-  "3": "linear-gradient(135deg, #2d2414 0%, #4a3c17 50%, #1a1408 100%)",
-  "4": "linear-gradient(135deg, #142d1f 0%, #174a2c 50%, #081a0f 100%)",
-  "5": "linear-gradient(135deg, #2d1424 0%, #4a1738 50%, #1a080f 100%)",
-  "6": "linear-gradient(135deg, #24142d 0%, #38174a 50%, #0f081a 100%)",
-  "7": "linear-gradient(135deg, #2d2914 0%, #4a4417 50%, #1a1608 100%)",
-  "8": "linear-gradient(135deg, #142d29 0%, #174a44 50%, #081a16 100%)",
-  "9": "linear-gradient(135deg, #2d1414 0%, #4a1717 50%, #1a0808 100%)",
-  "10": "linear-gradient(135deg, #1f142d 0%, #2c174a 50%, #0f081a 100%)",
-  "11": "linear-gradient(135deg, #142029 0%, #173244 50%, #081016 100%)",
-  "12": "linear-gradient(135deg, #29142d 0%, #44174a 50%, #16081a 100%)",
+  "1": "linear-gradient(135deg, #141833 0%, #1c2463 50%, #0a0d1a 100%)",
+  "2": "linear-gradient(135deg, #0f1a2e 0%, #1a2d52 50%, #0a1020 100%)",
+  "3": "linear-gradient(135deg, #1a1833 0%, #2a2463 50%, #0d0a1a 100%)",
+  "4": "linear-gradient(135deg, #131a33 0%, #1c2d63 50%, #080d1a 100%)",
+  "5": "linear-gradient(135deg, #1a1330 0%, #2d1c5a 50%, #0d081a 100%)",
+  "6": "linear-gradient(135deg, #181433 0%, #241c63 50%, #0a081a 100%)",
+  "7": "linear-gradient(135deg, #1a1c33 0%, #2a3063 50%, #0d0e1a 100%)",
+  "8": "linear-gradient(135deg, #131a30 0%, #1c2d5a 50%, #080d16 100%)",
+  "9": "linear-gradient(135deg, #1a1333 0%, #2d1c63 50%, #0d081a 100%)",
+  "10": "linear-gradient(135deg, #161433 0%, #221c63 50%, #0b081a 100%)",
+  "11": "linear-gradient(135deg, #131833 0%, #1c2a63 50%, #080d1a 100%)",
+  "12": "linear-gradient(135deg, #1a1433 0%, #2d1c63 50%, #0d081a 100%)",
 };
 
 export default function PortfolioShowcase() {

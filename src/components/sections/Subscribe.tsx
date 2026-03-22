@@ -62,7 +62,7 @@ export default function Subscribe() {
             <button
               type="submit"
               disabled={loading}
-              className="px-7 py-3.5 rounded-full bg-gold text-white text-sm font-medium hover:bg-gold-dark transition-colors disabled:opacity-50"
+              className="px-7 py-3.5 rounded-full bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors disabled:opacity-50 btn-glow"
             >
               {loading ? "..." : "Subscribe"}
             </button>

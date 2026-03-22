@@ -5,10 +5,10 @@ import { BTS_VIDEOS } from "@/lib/constants";
 import { Play } from "lucide-react";
 
 const BTS_GRADIENTS = [
-  "linear-gradient(135deg, #2d1f14 0%, #4a2c17 100%)",
-  "linear-gradient(135deg, #1a2332 0%, #2c3e50 100%)",
-  "linear-gradient(135deg, #2d2414 0%, #4a3c17 100%)",
-  "linear-gradient(135deg, #24142d 0%, #38174a 100%)",
+  "linear-gradient(135deg, #141833 0%, #1c2463 100%)",
+  "linear-gradient(135deg, #0f1a2e 0%, #1a2d52 100%)",
+  "linear-gradient(135deg, #1a1833 0%, #2a2463 100%)",
+  "linear-gradient(135deg, #131a33 0%, #1c2d63 100%)",
 ];
 
 export default function BehindTheScenes() {

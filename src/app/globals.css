@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-brand: #C8956C;
-  --color-brand-light: #D4A574;
+  --color-brand: #2F3CCF;
+  --color-brand-light: #6F86F7;
+  --color-brand-secondary: #4A5FE3;
   --color-bg: #0A0A0A;
   --color-bg-card: #111111;
   --color-bg-elevated: #1A1A1A;
@@ -13,7 +14,7 @@
   --color-text-muted: #888888;
   --color-text-light: #F2F2F4;
   --color-border: rgba(255,255,255,0.08);
-  --color-gold: #C8956C;
+  --color-gold: #4A5FE3;
 }
 
 html {
@@ -77,10 +78,19 @@ html.lenis body {
 }
 
 .glass-gold {
-  background: rgba(200, 149, 108, 0.08);
+  background: rgba(47, 60, 207, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(200, 149, 108, 0.15);
+  border: 1px solid rgba(79, 95, 227, 0.2);
+}
+
+/* Blue glow for primary buttons */
+.btn-glow {
+  box-shadow: 0 0 20px rgba(79, 95, 227, 0.4);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(111, 134, 247, 0.5);
 }
 
 /* Section padding */
@@ -167,7 +177,7 @@ html.lenis body {
 
 /* Star rating */
 .star-filled {
-  color: #C8956C;
+  color: #4A5FE3;
 }
 
 /* Horizontal scroll section */
@@ -181,7 +191,7 @@ html.lenis body {
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb {
-  background: rgba(200, 149, 108, 0.3);
+  background: rgba(79, 95, 227, 0.3);
   border-radius: 2px;
 }
 

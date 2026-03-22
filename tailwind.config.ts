@@ -10,15 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#C8956C",
-          light: "#D4A574",
-          dark: "#A67B5B",
+          DEFAULT: "#2F3CCF",
+          light: "#6F86F7",
+          dark: "#1E2A9E",
         },
         gold: {
-          DEFAULT: "#C8956C",
-          light: "#D4A574",
-          dark: "#A67B5B",
-          muted: "rgba(200, 149, 108, 0.3)",
+          DEFAULT: "#4A5FE3",
+          light: "#6F86F7",
+          dark: "#2F3CCF",
+          muted: "rgba(79, 95, 227, 0.3)",
         },
         surface: {
           DEFAULT: "#0A0A0A",

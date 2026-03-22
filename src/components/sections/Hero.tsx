@@ -45,7 +45,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, #1a0f0a 0%, #0d0907 25%, #111 50%, #0a0705 75%, #1a0f0a 100%)",
+              "linear-gradient(135deg, #0a0d1a 0%, #070912 25%, #111 50%, #070912 75%, #0a0d1a 100%)",
           }}
         />
       </div>
@@ -53,8 +53,8 @@ export default function Hero() {
       {/* Dark Luxury Overlay */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-      {/* Warm tone gradient accent */}
-      <div className="absolute inset-0 z-[1] opacity-20 bg-gradient-to-tr from-[#C8956C]/20 via-transparent to-transparent" />
+      {/* Blue tone gradient accent */}
+      <div className="absolute inset-0 z-[1] opacity-20 bg-gradient-to-tr from-[#2F3CCF]/20 via-transparent to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-[5vw] max-w-5xl mx-auto pt-20 md:pt-24">
@@ -83,7 +83,7 @@ export default function Hero() {
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#contact">
-            <button className="px-10 py-4 rounded-full glass-gold text-white font-medium text-base hover:bg-gold/20 transition-all duration-300 backdrop-blur-xl">
+            <button className="px-10 py-4 rounded-full glass-gold text-white font-medium text-base hover:bg-gold/20 transition-all duration-300 backdrop-blur-xl btn-glow">
               Book a Shoot
             </button>
           </a>

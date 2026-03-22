@@ -63,7 +63,7 @@ export default function About() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(160deg, #2d1f14 0%, #4a2c17 30%, #C8956C 60%, #1a0f08 100%)",
+                    "linear-gradient(160deg, #141833 0%, #1c2463 30%, #4A5FE3 60%, #0a0d1a 100%)",
                 }}
               />
               <div className="absolute inset-0 flex items-center justify-center">

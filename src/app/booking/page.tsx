@@ -98,7 +98,7 @@ export default function BookingPage() {
             <button
               onClick={handleCheckout}
               disabled={!email || loading}
-              className="w-full inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-gold text-white font-medium hover:bg-gold-dark transition-colors disabled:opacity-50"
+              className="w-full inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-gold text-white font-medium hover:bg-gold-light transition-colors disabled:opacity-50 btn-glow"
             >
               {loading ? (
                 <>

@@ -269,7 +269,7 @@ export default function Inquiry() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold text-white font-medium hover:bg-gold-dark transition-colors disabled:opacity-50"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold text-white font-medium hover:bg-gold-light transition-colors disabled:opacity-50 btn-glow"
                 >
                   {sending ? "Sending..." : "Book a Shoot"}
                   <Send className="w-4 h-4" />
