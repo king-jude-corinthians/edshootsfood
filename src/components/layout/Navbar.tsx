@@ -33,9 +33,9 @@ export default function Navbar() {
             <Image
               src="/images/logo-icon.png"
               alt="ED"
-              width={40}
-              height={40}
-              className="h-10 md:h-12 w-auto"
+              width={56}
+              height={56}
+              className="h-12 md:h-14 w-auto"
               priority
             />
             <span className="text-lg md:text-xl font-light tracking-wide text-white/80">

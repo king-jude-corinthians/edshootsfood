@@ -15,9 +15,9 @@ export default function Footer() {
               <Image
                 src="/images/logo-icon.png"
                 alt="ED"
-                width={44}
-                height={44}
-                className="h-12 w-auto"
+                width={56}
+                height={56}
+                className="h-14 w-auto"
               />
               <span className="text-xl font-light tracking-wide text-white/80">
                 SHOOTSFOOD
