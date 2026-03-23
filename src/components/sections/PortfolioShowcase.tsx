@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { PORTFOLIO_ITEMS, PORTFOLIO_CATEGORIES } from "@/lib/constants";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -10,17 +11,15 @@ const ASPECT_MAP: Record<string, string> = {
   square: "aspect-square",
 };
 
+const HAS_IMAGE = new Set(["1", "4", "6", "10"]);
+
 const GRADIENT_MAP: Record<string, string> = {
-  "1": "linear-gradient(135deg, #141833 0%, #1c2463 50%, #0a0d1a 100%)",
   "2": "linear-gradient(135deg, #0f1a2e 0%, #1a2d52 50%, #0a1020 100%)",
   "3": "linear-gradient(135deg, #1a1833 0%, #2a2463 50%, #0d0a1a 100%)",
-  "4": "linear-gradient(135deg, #131a33 0%, #1c2d63 50%, #080d1a 100%)",
   "5": "linear-gradient(135deg, #1a1330 0%, #2d1c5a 50%, #0d081a 100%)",
-  "6": "linear-gradient(135deg, #181433 0%, #241c63 50%, #0a081a 100%)",
   "7": "linear-gradient(135deg, #1a1c33 0%, #2a3063 50%, #0d0e1a 100%)",
   "8": "linear-gradient(135deg, #131a30 0%, #1c2d5a 50%, #080d16 100%)",
   "9": "linear-gradient(135deg, #1a1333 0%, #2d1c63 50%, #0d081a 100%)",
-  "10": "linear-gradient(135deg, #161433 0%, #221c63 50%, #0b081a 100%)",
   "11": "linear-gradient(135deg, #131833 0%, #1c2a63 50%, #080d1a 100%)",
   "12": "linear-gradient(135deg, #1a1433 0%, #2d1c63 50%, #0d081a 100%)",
 };
@@ -134,11 +133,20 @@ export default function PortfolioShowcase() {
                 <div
                   className={`relative ${ASPECT_MAP[item.aspect]} rounded-2xl overflow-hidden`}
                 >
-                  {/* Placeholder gradient */}
-                  <div
-                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-                    style={{ background: GRADIENT_MAP[item.id] }}
-                  />
+                  {HAS_IMAGE.has(item.id) ? (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
+                      style={{ background: GRADIENT_MAP[item.id] }}
+                    />
+                  )}
 
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-end p-6">
@@ -188,10 +196,22 @@ export default function PortfolioShowcase() {
             className="relative max-w-4xl max-h-[80vh] w-full mx-8 rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div
-              className="w-full aspect-[4/3] rounded-2xl"
-              style={{ background: GRADIENT_MAP[filteredItems[lightboxIndex].id] }}
-            />
+            {HAS_IMAGE.has(filteredItems[lightboxIndex].id) ? (
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                <Image
+                  src={filteredItems[lightboxIndex].image}
+                  alt={filteredItems[lightboxIndex].title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 90vw, 800px"
+                />
+              </div>
+            ) : (
+              <div
+                className="w-full aspect-[4/3] rounded-2xl"
+                style={{ background: GRADIENT_MAP[filteredItems[lightboxIndex].id] }}
+              />
+            )}
             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
               <span className="inline-block px-3 py-1 rounded-full glass text-gold text-[10px] uppercase tracking-wider mb-2">
                 {filteredItems[lightboxIndex].category}
