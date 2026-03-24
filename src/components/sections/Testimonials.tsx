@@ -95,7 +95,7 @@ export default function Testimonials() {
             <div className="flex items-center justify-center gap-4 mt-10">
               <button
                 onClick={() => { prev(); resetInterval(); }}
-                className="p-3 rounded-full glass text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+                className="p-3 rounded-full glass-glow text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -114,7 +114,7 @@ export default function Testimonials() {
 
               <button
                 onClick={() => { next(); resetInterval(); }}
-                className="p-3 rounded-full glass text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+                className="p-3 rounded-full glass-glow text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
