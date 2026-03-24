@@ -80,7 +80,7 @@ export default function ClientTrust() {
                   sizes="64px"
                 />
               </div>
-              <p className="text-[var(--color-text-muted)] text-[10px] uppercase tracking-wider group-hover:text-gold transition-colors duration-300">
+              <p className="text-[var(--color-text)] text-sm font-semibold uppercase tracking-wider group-hover:text-gold transition-colors duration-300">
                 {client.name}
               </p>
             </div>
