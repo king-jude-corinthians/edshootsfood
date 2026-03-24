@@ -57,12 +57,12 @@ export default function Subscribe() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="flex-1 px-6 py-3.5 rounded-full glass text-[var(--color-text)] text-sm placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-gold/30 border border-[var(--color-border)] transition-all"
+              className="flex-1 px-6 py-3.5 rounded-full glass-glow text-[var(--color-text)] text-sm placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-gold/30 transition-all"
             />
             <button
               type="submit"
               disabled={loading}
-              className="px-7 py-3.5 rounded-full bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors disabled:opacity-50 btn-glow"
+              className="px-7 py-3.5 rounded-full bg-gold text-white text-sm font-medium hover:bg-gold-light transition-all disabled:opacity-50 glass-glow"
             >
               {loading ? "..." : "Subscribe"}
             </button>

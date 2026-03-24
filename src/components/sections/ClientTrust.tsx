@@ -44,7 +44,7 @@ export default function ClientTrust() {
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
-          <span className="trust-reveal inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
+          <span className="trust-reveal inline-block px-5 py-2 rounded-full glass-glow text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Clients
           </span>
           <h2 className="trust-reveal text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
