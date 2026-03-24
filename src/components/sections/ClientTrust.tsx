@@ -1,7 +1,19 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import NextImage from "next/image";
 import { CLIENT_LOGOS } from "@/lib/constants";
+
+const CLIENT_LOGO_IMAGES: Record<string, string> = {
+  SK: "/images/clients/client-sk.png",
+  UG: "/images/clients/client-ug.png",
+  AF: "/images/clients/client-af.png",
+  LM: "/images/clients/client-lm.png",
+  SB: "/images/clients/client-sb.png",
+  RT: "/images/clients/client-rt.png",
+  FL: "/images/clients/client-fl.png",
+  SM: "/images/clients/client-sm.png",
+};
 
 const STATS = [
   { value: "100+", label: "Shoots Completed" },
@@ -57,16 +69,20 @@ export default function ClientTrust() {
           {CLIENT_LOGOS.map((client) => (
             <div
               key={client.name}
-              className="trust-reveal logo-grayscale flex items-center justify-center p-6 rounded-2xl glass aspect-[3/2] cursor-pointer group"
+              className="trust-reveal flex flex-col items-center justify-center p-6 rounded-2xl glass-glow aspect-[3/2] cursor-pointer group hover:shadow-[0_0_24px_rgba(79,95,227,0.4),0_0_48px_rgba(79,95,227,0.15)] hover:border-[rgba(79,95,227,0.35)] hover:scale-[1.05] transition-all duration-500"
             >
-              <div className="text-center">
-                <span className="text-2xl font-medium text-[var(--color-text)] opacity-70 group-hover:text-gold transition-colors duration-300">
-                  {client.initials}
-                </span>
-                <p className="text-[var(--color-text-muted)] text-[10px] mt-1 uppercase tracking-wider group-hover:opacity-80 transition-colors duration-300">
-                  {client.name}
-                </p>
+              <div className="relative w-16 h-16 mb-3 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <NextImage
+                  src={CLIENT_LOGO_IMAGES[client.initials]}
+                  alt={client.name}
+                  fill
+                  className="object-contain"
+                  sizes="64px"
+                />
               </div>
+              <p className="text-[var(--color-text-muted)] text-[10px] uppercase tracking-wider group-hover:text-gold transition-colors duration-300">
+                {client.name}
+              </p>
             </div>
           ))}
         </div>
