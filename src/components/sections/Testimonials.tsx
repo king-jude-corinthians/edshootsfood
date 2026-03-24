@@ -74,7 +74,7 @@ export default function Testimonials() {
           <div className="relative">
             <div
               key={current}
-              className="glass-strong rounded-3xl p-10 md:p-14 text-center animate-slide-carousel"
+              className="glass-glow rounded-3xl p-10 md:p-14 text-center animate-slide-carousel"
             >
               <Quote className="w-10 h-10 text-gold/30 mx-auto mb-6" />
               <StarRating rating={TESTIMONIALS[current].rating} />
