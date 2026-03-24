@@ -211,14 +211,14 @@ export const ABOUT = {
 };
 
 export const CLIENT_LOGOS = [
-  { name: "Sakura Kitchen", initials: "SK" },
-  { name: "Urban Grill Co.", initials: "UG" },
-  { name: "Afro Fusion Bistro", initials: "AF" },
-  { name: "La Mesa", initials: "LM" },
-  { name: "Seoul Bites", initials: "SB" },
-  { name: "The Rustic Table", initials: "RT" },
-  { name: "Fresh & Local", initials: "FL" },
-  { name: "Spice Market", initials: "SM" },
+  { name: "Ambrossia", initials: "SK" },
+  { name: "Rebar", initials: "UG" },
+  { name: "MEATS 'R' Us", initials: "AF" },
+  { name: "Uncle T's", initials: "LM" },
+  { name: "Nephews", initials: "SB" },
+  { name: "District", initials: "RT" },
+  { name: "Court 5", initials: "FL" },
+  { name: "ChopwithNu", initials: "SM" },
 ] as const;
 
 export const BTS_VIDEOS = [
