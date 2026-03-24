@@ -4,11 +4,11 @@ import { useRef, useEffect } from "react";
 import { BTS_VIDEOS } from "@/lib/constants";
 import { Play } from "lucide-react";
 
-const BTS_GRADIENTS = [
-  "linear-gradient(135deg, #141833 0%, #1c2463 100%)",
-  "linear-gradient(135deg, #0f1a2e 0%, #1a2d52 100%)",
-  "linear-gradient(135deg, #1a1833 0%, #2a2463 100%)",
-  "linear-gradient(135deg, #131a33 0%, #1c2d63 100%)",
+const BTS_VIDEO_SRCS = [
+  "/videos/bts-1.mp4",
+  "/videos/bts-2.mp4",
+  "/videos/bts-3.mp4",
+  "/videos/bts-4.mp4",
 ];
 
 export default function BehindTheScenes() {
@@ -68,10 +68,15 @@ export default function BehindTheScenes() {
               className="bts-item flex-shrink-0 w-[320px] md:w-[400px] group cursor-pointer snap-start"
             >
               <div className="relative aspect-video rounded-2xl overflow-hidden mb-4">
-                <div
-                  className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-                  style={{ background: BTS_GRADIENTS[index] }}
-                />
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                >
+                  <source src={BTS_VIDEO_SRCS[index]} type="video/mp4" />
+                </video>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-16 h-16 rounded-full glass flex items-center justify-center">
                     <Play className="w-6 h-6 text-gold fill-gold" />
