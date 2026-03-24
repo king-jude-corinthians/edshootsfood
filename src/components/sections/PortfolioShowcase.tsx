@@ -11,13 +11,6 @@ const ASPECT_MAP: Record<string, string> = {
   square: "aspect-square",
 };
 
-const HAS_IMAGE = new Set(["1", "3", "4", "6", "7", "8", "9", "10", "11", "12"]);
-
-const GRADIENT_MAP: Record<string, string> = {
-  "2": "linear-gradient(135deg, #0f1a2e 0%, #1a2d52 50%, #0a1020 100%)",
-  "5": "linear-gradient(135deg, #1a1330 0%, #2d1c5a 50%, #0d081a 100%)",
-};
-
 export default function PortfolioShowcase() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -127,20 +120,13 @@ export default function PortfolioShowcase() {
                 <div
                   className={`relative ${ASPECT_MAP[item.aspect]} rounded-2xl overflow-hidden`}
                 >
-                  {HAS_IMAGE.has(item.id) ? (
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div
-                      className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-                      style={{ background: GRADIENT_MAP[item.id] }}
-                    />
-                  )}
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
 
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-end p-6">
@@ -190,22 +176,15 @@ export default function PortfolioShowcase() {
             className="relative max-w-4xl max-h-[80vh] w-full mx-8 rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {HAS_IMAGE.has(filteredItems[lightboxIndex].id) ? (
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image
-                  src={filteredItems[lightboxIndex].image}
-                  alt={filteredItems[lightboxIndex].title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 90vw, 800px"
-                />
-              </div>
-            ) : (
-              <div
-                className="w-full aspect-[4/3] rounded-2xl"
-                style={{ background: GRADIENT_MAP[filteredItems[lightboxIndex].id] }}
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src={filteredItems[lightboxIndex].image}
+                alt={filteredItems[lightboxIndex].title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 90vw, 800px"
               />
-            )}
+            </div>
             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
               <span className="inline-block px-3 py-1 rounded-full glass text-gold text-[10px] uppercase tracking-wider mb-2">
                 {filteredItems[lightboxIndex].category}
