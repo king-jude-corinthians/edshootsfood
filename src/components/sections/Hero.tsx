@@ -2,16 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { useChat } from "@/components/providers/ChatProvider";
 import { useTheme } from "@/components/providers/ThemeProvider";
-import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLSpanElement>(null);
-  const { openChat } = useChat();
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -67,8 +64,8 @@ export default function Hero() {
       <div
         className={`absolute inset-0 z-[1] transition-opacity duration-500 ${
           isLight
-            ? "bg-gradient-to-b from-white/40 via-white/10 to-white/50"
-            : "bg-gradient-to-b from-black/70 via-black/50 to-black/80"
+            ? "bg-gradient-to-b from-white/30 via-white/5 to-white/60"
+            : "bg-gradient-to-b from-black/40 via-black/30 to-black/85"
         }`}
       />
       <div
@@ -96,13 +93,22 @@ export default function Hero() {
 
         <h1
           ref={headingRef}
-          className={`text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-medium tracking-tight leading-[0.95] mb-6 transition-colors duration-500 ${
+          className={`text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-medium tracking-tight leading-[1.1] mb-8 transition-colors duration-500 ${
             isLight ? "text-[#111111]" : "text-white"
           }`}
         >
           We Capture Food
           <br />
-          <span className="text-gold">Like Art</span>
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage: isLight
+                ? "linear-gradient(135deg, #2F3CCF 0%, #6F86F7 100%)"
+                : "linear-gradient(135deg, #8B9CF7 0%, #B4C0FF 50%, #8B9CF7 100%)",
+            }}
+          >
+            Like Art
+          </span>
         </h1>
 
         <p
@@ -114,11 +120,19 @@ export default function Hero() {
           Premium food photography for brands, restaurants, and campaigns
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <LiquidMetalButton
-            label="Book a Shoot"
-            onClick={() => openChat("I want to book a food shoot")}
-          />
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
+          <button
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={`px-8 py-3.5 rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300 border backdrop-blur-sm ${
+              isLight
+                ? "border-[#2F3CCF]/40 text-[#2F3CCF] hover:bg-[#2F3CCF]/10 hover:border-[#2F3CCF]/60 hover:shadow-[0_0_20px_rgba(47,60,207,0.2)]"
+                : "border-white/25 text-white/90 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+            }`}
+          >
+            Book a Shoot
+          </button>
         </div>
       </div>
 

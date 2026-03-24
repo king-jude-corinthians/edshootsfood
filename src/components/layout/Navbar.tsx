@@ -35,23 +35,23 @@ export default function Navbar() {
             <Image
               src="/images/logo-icon.png"
               alt="ED"
-              width={56}
-              height={56}
-              className="h-12 md:h-14 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(47,60,207,0.6)] group-hover:scale-105"
+              width={48}
+              height={48}
+              className="h-10 md:h-11 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(47,60,207,0.6)] group-hover:scale-105"
               priority
             />
-            <span className="text-lg md:text-xl font-light tracking-wide text-[var(--color-text)] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:text-gold">
+            <span className="text-base md:text-lg font-light tracking-wide text-[var(--color-text)] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:text-gold">
               SHOOTSFOOD
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-5 py-2 rounded-full text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-border)] transition-all duration-200"
+                className="px-5 py-2 rounded-full text-[13px] font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-border)] transition-all duration-200"
               >
                 {link.label}
               </a>
