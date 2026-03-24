@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { useChat } from "@/components/providers/ChatProvider";
 import { useTheme } from "@/components/providers/ThemeProvider";
 
@@ -47,20 +48,18 @@ export default function Hero() {
         }}
       />
 
-      {/* Video Background — no Ken Burns to preserve content */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
+        <Image
+          src="/images/hero-poster.jpg"
+          alt="Food photography hero"
+          fill
+          className={`object-cover transition-opacity duration-500 ${
             isLight ? "opacity-60" : "opacity-100"
           }`}
-          poster="/images/hero-poster.jpg"
-        >
-          <source src="/videos/hero-reel.mp4" type="video/mp4" />
-        </video>
+          sizes="100vw"
+          priority
+        />
       </div>
 
       {/* Overlays */}
