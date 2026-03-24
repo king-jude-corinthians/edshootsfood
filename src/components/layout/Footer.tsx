@@ -86,7 +86,7 @@ export default function Footer() {
             reserved.
           </p>
           <p className="text-[var(--color-text-muted)] opacity-40 text-xs">
-            Crafted with precision
+            Crafted by KINGJUDE
           </p>
         </div>
       </div>
