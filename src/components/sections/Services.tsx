@@ -12,11 +12,11 @@ const ICONS: Record<string, React.ReactNode> = {
   image: <Image className="w-7 h-7" />,
 };
 
-const CARD_TEXTS: Record<string, string> = {
-  "food-photography": "Food",
-  "product-shoots": "Product",
-  "social-media": "Social",
-  "brand-campaigns": "Brand",
+const CARD_IMAGES: Record<string, string> = {
+  "food-photography": "/images/service-food.jpg",
+  "product-shoots": "/images/service-product.jpg",
+  "social-media": "/images/service-social.jpg",
+  "brand-campaigns": "/images/service-brand.jpg",
 };
 
 export default function Services() {
@@ -85,7 +85,7 @@ export default function Services() {
 
               {/* Evervault Card Effect */}
               <div className="w-full h-[200px]">
-                <EvervaultCard text={CARD_TEXTS[service.id] ?? service.title} />
+                <EvervaultCard image={CARD_IMAGES[service.id]} text={service.title} />
               </div>
 
               {/* Content */}
