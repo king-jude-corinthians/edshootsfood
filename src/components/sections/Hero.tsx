@@ -121,6 +121,7 @@ export default function Hero() {
           />
           <LiquidMetalButton
             label="View Portfolio"
+            variant="secondary"
             onClick={() => {
               document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
             }}

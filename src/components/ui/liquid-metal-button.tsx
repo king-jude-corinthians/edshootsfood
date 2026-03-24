@@ -4,18 +4,23 @@ import { liquidMetalFragmentShader, ShaderMount } from "@paper-design/shaders";
 import { Sparkles } from "lucide-react";
 import type React from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 interface LiquidMetalButtonProps {
   label?: string;
   onClick?: () => void;
   viewMode?: "text" | "icon";
+  variant?: "primary" | "secondary";
 }
 
 export function LiquidMetalButton({
   label = "Get Started",
   onClick,
   viewMode = "text",
+  variant = "primary",
 }: LiquidMetalButtonProps) {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
   const [ripples, setRipples] = useState<
@@ -26,6 +31,31 @@ export function LiquidMetalButton({
   const shaderMount = useRef<any>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleId = useRef(0);
+
+  const colors = useMemo(() => {
+    if (variant === "secondary") {
+      return {
+        innerBg: isLight
+          ? "linear-gradient(180deg, #FFFFFF 0%, #F0F2FF 100%)"
+          : "linear-gradient(180deg, #1a1a2e 0%, #0a0a1a 100%)",
+        textColor: isLight ? "#2F3CCF" : "#6F86F7",
+        glowColor: isLight
+          ? "0 0 20px rgba(47, 60, 207, 0.3), 0 0 40px rgba(47, 60, 207, 0.1)"
+          : "0 0 20px rgba(74, 95, 227, 0.2), 0 0 40px rgba(74, 95, 227, 0.1)",
+        borderColor: isLight ? "rgba(47, 60, 207, 0.25)" : "rgba(74, 95, 227, 0.3)",
+      };
+    }
+    return {
+      innerBg: isLight
+        ? "linear-gradient(180deg, #3A4AD9 0%, #2F3CCF 100%)"
+        : "linear-gradient(180deg, #4A5FE3 0%, #2F3CCF 100%)",
+      textColor: "#FFFFFF",
+      glowColor: isLight
+        ? "0 0 20px rgba(47, 60, 207, 0.5), 0 0 40px rgba(47, 60, 207, 0.2)"
+        : "0 0 20px rgba(74, 95, 227, 0.4), 0 0 40px rgba(74, 95, 227, 0.15)",
+      borderColor: isLight ? "rgba(47, 60, 207, 0.4)" : "rgba(74, 95, 227, 0.4)",
+    };
+  }, [variant, isLight]);
 
   const dimensions = useMemo(() => {
     if (viewMode === "icon") {
@@ -200,8 +230,8 @@ export function LiquidMetalButton({
               <Sparkles
                 size={16}
                 style={{
-                  color: "#666666",
-                  filter: "drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.5))",
+                  color: colors.textColor,
+                  filter: "drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3))",
                   transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   transform: "scale(1)",
                 }}
@@ -211,9 +241,9 @@ export function LiquidMetalButton({
               <span
                 style={{
                   fontSize: "14px",
-                  color: "#666666",
-                  fontWeight: 400,
-                  textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)",
+                  color: colors.textColor,
+                  fontWeight: 500,
+                  textShadow: "0px 1px 2px rgba(0, 0, 0, 0.3)",
                   transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   transform: "scale(1)",
                   whiteSpace: "nowrap",
@@ -244,7 +274,7 @@ export function LiquidMetalButton({
                 height: `${dimensions.innerHeight}px`,
                 margin: "2px",
                 borderRadius: "100px",
-                background: "linear-gradient(180deg, #202020 0%, #000000 100%)",
+                background: colors.innerBg,
                 boxShadow: isPressed
                   ? "inset 0px 2px 4px rgba(0, 0, 0, 0.4), inset 0px 1px 2px rgba(0, 0, 0, 0.3)"
                   : "none",
@@ -274,10 +304,10 @@ export function LiquidMetalButton({
                 width: `${dimensions.width}px`,
                 borderRadius: "100px",
                 boxShadow: isPressed
-                  ? "0px 0px 0px 1px rgba(0, 0, 0, 0.5), 0px 1px 2px 0px rgba(0, 0, 0, 0.3)"
+                  ? `0px 0px 0px 1px ${colors.borderColor}, 0px 1px 2px 0px rgba(0, 0, 0, 0.3)`
                   : isHovered
-                    ? "0px 0px 0px 1px rgba(0, 0, 0, 0.4), 0px 12px 6px 0px rgba(0, 0, 0, 0.05), 0px 8px 5px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.2)"
-                    : "0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 36px 14px 0px rgba(0, 0, 0, 0.02), 0px 20px 12px 0px rgba(0, 0, 0, 0.08), 0px 9px 9px 0px rgba(0, 0, 0, 0.12), 0px 2px 5px 0px rgba(0, 0, 0, 0.15)",
+                    ? `0px 0px 0px 1px ${colors.borderColor}, ${colors.glowColor}, 0px 4px 4px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.2)`
+                    : `0px 0px 0px 1px ${colors.borderColor}, ${colors.glowColor}, 0px 9px 9px 0px rgba(0, 0, 0, 0.12), 0px 2px 5px 0px rgba(0, 0, 0, 0.15)`,
                 transition:
                   "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s ease, height 0.4s ease, box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
                 background: "rgb(0 0 0 / 0)",

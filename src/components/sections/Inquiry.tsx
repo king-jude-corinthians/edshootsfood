@@ -274,6 +274,7 @@ export default function Inquiry() {
                 />
                 <LiquidMetalButton
                   label="WhatsApp"
+                  variant="secondary"
                   onClick={openWhatsApp}
                 />
               </div>
