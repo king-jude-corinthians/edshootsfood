@@ -67,7 +67,7 @@ export default function BehindTheScenes() {
               key={video.id}
               className="bts-item flex-shrink-0 w-[320px] md:w-[400px] group cursor-pointer snap-start"
             >
-              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4">
+              <div className="relative aspect-video rounded-2xl overflow-hidden mb-4">
                 <div
                   className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
                   style={{ background: BTS_GRADIENTS[index] }}
