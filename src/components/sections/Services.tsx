@@ -59,7 +59,7 @@ export default function Services() {
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
+          <span className="inline-block px-5 py-2 rounded-full glass-glow text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Services
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
@@ -90,7 +90,7 @@ export default function Services() {
 
               {/* Content */}
               <div className="px-6 pb-6 pt-2 w-full">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4 text-gold group-hover:bg-gold/20 transition-colors duration-300">
+                <div className="w-12 h-12 rounded-xl glass-glow flex items-center justify-center mb-4 text-gold group-hover:bg-gold/10 transition-all duration-300">
                   {ICONS[service.icon]}
                 </div>
 

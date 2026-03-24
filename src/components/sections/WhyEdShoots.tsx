@@ -47,7 +47,7 @@ export default function WhyEdShoots() {
       <div className="mx-auto max-w-[1400px]">
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block px-5 py-2 rounded-full glass text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
+          <span className="inline-block px-5 py-2 rounded-full glass-glow text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">
             Why Us
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--color-text)] leading-[1.1]">
@@ -62,7 +62,7 @@ export default function WhyEdShoots() {
               key={item.title}
               className="why-item text-center group"
             >
-              <div className="w-16 h-16 rounded-2xl glass mx-auto mb-6 flex items-center justify-center text-gold group-hover:bg-gold/10 transition-colors duration-300">
+              <div className="w-16 h-16 rounded-2xl glass-glow mx-auto mb-6 flex items-center justify-center text-gold group-hover:bg-gold/10 transition-all duration-300">
                 {ICONS[item.icon]}
               </div>
               <h3 className="text-[var(--color-text)] font-medium text-lg mb-2">{item.title}</h3>

@@ -9,7 +9,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2.5 rounded-full glass hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-300"
+      className="relative p-2.5 rounded-full glass-glow hover:bg-gold/10 transition-all duration-300"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       <Sun
