@@ -117,7 +117,7 @@ export default function Inquiry() {
         </div>
 
         {/* Form Card */}
-        <div className="glass-strong rounded-3xl p-8 md:p-12">
+        <div className="glass-glow rounded-3xl p-8 md:p-12">
           {submitted ? (
             <div className="text-center py-16">
               <CheckCircle className="w-16 h-16 text-gold mx-auto mb-6" />
