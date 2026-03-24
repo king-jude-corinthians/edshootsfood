@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useChat } from "@/components/providers/ChatProvider";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -113,28 +114,17 @@ export default function Hero() {
           Premium food photography for brands, restaurants, and campaigns
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <LiquidMetalButton
+            label="Book a Shoot"
             onClick={() => openChat("I want to book a food shoot")}
-            className={`px-10 py-4 rounded-full font-medium text-base transition-all duration-300 backdrop-blur-xl btn-glow ${
-              isLight
-                ? "bg-brand text-white hover:bg-brand-dark"
-                : "glass-gold text-white hover:bg-gold/20"
-            }`}
-          >
-            Book a Shoot
-          </button>
-          <a href="#portfolio">
-            <button
-              className={`px-10 py-4 rounded-full font-medium text-base transition-all duration-300 backdrop-blur-xl ${
-                isLight
-                  ? "border border-[#111111]/20 text-[#111111] hover:bg-[#111111]/5"
-                  : "border border-white/20 text-white hover:bg-white/10"
-              }`}
-            >
-              View Portfolio
-            </button>
-          </a>
+          />
+          <LiquidMetalButton
+            label="View Portfolio"
+            onClick={() => {
+              document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
         </div>
       </div>
 

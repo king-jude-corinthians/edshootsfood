@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 const WHATSAPP_NUMBER = "+2348089591880";
 
@@ -266,23 +267,15 @@ export default function Inquiry() {
                 )}
               </div>
 
-              <div className="form-reveal flex flex-col sm:flex-row gap-4 pt-4">
-                <button
-                  type="submit"
-                  disabled={sending}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold text-white font-medium hover:bg-gold-light transition-colors disabled:opacity-50 btn-glow"
-                >
-                  {sending ? "Sending..." : "Book a Shoot"}
-                  <Send className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
+              <div className="form-reveal flex flex-col sm:flex-row items-center gap-6 pt-4">
+                <LiquidMetalButton
+                  label={sending ? "Sending..." : "Book a Shoot"}
+                  onClick={handleSubmit(onSubmit)}
+                />
+                <LiquidMetalButton
+                  label="WhatsApp"
                   onClick={openWhatsApp}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full glass text-[var(--color-text)] font-medium hover:bg-gold/10 transition-colors border border-[var(--color-border)]"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp
-                </button>
+                />
               </div>
             </form>
           )}

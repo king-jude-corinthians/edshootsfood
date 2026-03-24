@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,12 +61,12 @@ export default function Navbar() {
           {/* CTA + Theme Toggle */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <a
-              href="#contact"
-              className="px-6 py-2.5 rounded-full glass-gold text-gold text-sm font-medium hover:bg-gold/15 transition-colors duration-200"
-            >
-              Book a Shoot
-            </a>
+            <LiquidMetalButton
+              label="Book a Shoot"
+              onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            />
           </div>
 
           {/* Mobile Toggle */}
@@ -105,13 +106,15 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <a
-          href="#contact"
-          onClick={() => setMobileOpen(false)}
-          className="mt-4 px-8 py-3 rounded-full glass-gold text-gold text-lg font-medium"
-        >
-          Book a Shoot
-        </a>
+        <div className="mt-4">
+          <LiquidMetalButton
+            label="Book a Shoot"
+            onClick={() => {
+              setMobileOpen(false);
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+        </div>
       </div>
     </>
   );
