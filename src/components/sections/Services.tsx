@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import NextImage from "next/image";
 import { SERVICES } from "@/lib/constants";
 import { UtensilsCrossed, Camera, Sparkles, Image } from "lucide-react";
-import { EvervaultCard, Icon } from "@/components/ui/evervault-card";
 
 const ICONS: Record<string, React.ReactNode> = {
   utensils: <UtensilsCrossed className="w-7 h-7" />,
@@ -77,15 +77,15 @@ export default function Services() {
               key={service.id}
               className="service-card group relative border border-[var(--color-border)] flex flex-col items-start rounded-2xl glass p-0 overflow-hidden hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500"
             >
-              {/* Corner Icons */}
-              <Icon className="absolute h-5 w-5 -top-2.5 -left-2.5 text-[var(--color-text-muted)]" />
-              <Icon className="absolute h-5 w-5 -bottom-2.5 -left-2.5 text-[var(--color-text-muted)]" />
-              <Icon className="absolute h-5 w-5 -top-2.5 -right-2.5 text-[var(--color-text-muted)]" />
-              <Icon className="absolute h-5 w-5 -bottom-2.5 -right-2.5 text-[var(--color-text-muted)]" />
-
-              {/* Evervault Card Effect */}
-              <div className="w-full h-[200px]">
-                <EvervaultCard image={CARD_IMAGES[service.id]} text={service.title} />
+              {/* Service Image */}
+              <div className="relative w-full h-[200px] overflow-hidden">
+                <NextImage
+                  src={CARD_IMAGES[service.id]}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
               </div>
 
               {/* Content */}
