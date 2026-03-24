@@ -90,11 +90,11 @@ export default function ClientTrust() {
         {/* Stats */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
           {STATS.map((stat) => (
-            <div key={stat.label} className="trust-reveal text-center">
-              <div className="text-5xl md:text-6xl font-medium text-gold mb-2">
+            <div key={stat.label} className="trust-reveal text-center glass-glow rounded-2xl px-10 py-8">
+              <div className="text-5xl md:text-6xl font-bold text-gold mb-2">
                 {stat.value}
               </div>
-              <div className="text-[var(--color-text-muted)] text-sm uppercase tracking-wider">
+              <div className="text-[var(--color-text)] text-sm font-semibold uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>
