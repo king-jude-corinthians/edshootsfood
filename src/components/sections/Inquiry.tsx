@@ -272,11 +272,6 @@ export default function Inquiry() {
                   label={sending ? "Sending..." : "Book a Shoot"}
                   onClick={handleSubmit(onSubmit)}
                 />
-                <LiquidMetalButton
-                  label="WhatsApp"
-                  variant="secondary"
-                  onClick={openWhatsApp}
-                />
               </div>
             </form>
           )}
