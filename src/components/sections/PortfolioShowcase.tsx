@@ -100,8 +100,8 @@ export default function PortfolioShowcase() {
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeFilter === category
-                    ? "glass-gold text-gold"
-                    : "glass text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                    ? "glass-glow text-gold"
+                    : "glass-glow text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                 }`}
               >
                 {category}
