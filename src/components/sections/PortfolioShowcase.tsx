@@ -11,14 +11,11 @@ const ASPECT_MAP: Record<string, string> = {
   square: "aspect-square",
 };
 
-const HAS_IMAGE = new Set(["1", "3", "4", "6", "9", "10", "12"]);
+const HAS_IMAGE = new Set(["1", "3", "4", "6", "7", "8", "9", "10", "11", "12"]);
 
 const GRADIENT_MAP: Record<string, string> = {
   "2": "linear-gradient(135deg, #0f1a2e 0%, #1a2d52 50%, #0a1020 100%)",
   "5": "linear-gradient(135deg, #1a1330 0%, #2d1c5a 50%, #0d081a 100%)",
-  "7": "linear-gradient(135deg, #1a1c33 0%, #2a3063 50%, #0d0e1a 100%)",
-  "8": "linear-gradient(135deg, #131a30 0%, #1c2d5a 50%, #080d16 100%)",
-  "11": "linear-gradient(135deg, #131833 0%, #1c2a63 50%, #080d1a 100%)",
 };
 
 export default function PortfolioShowcase() {
