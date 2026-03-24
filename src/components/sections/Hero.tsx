@@ -119,13 +119,6 @@ export default function Hero() {
             label="Book a Shoot"
             onClick={() => openChat("I want to book a food shoot")}
           />
-          <LiquidMetalButton
-            label="View Portfolio"
-            variant="secondary"
-            onClick={() => {
-              document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
         </div>
       </div>
 
