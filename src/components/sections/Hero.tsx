@@ -2,14 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { useTheme } from "@/components/providers/ThemeProvider";
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLSpanElement>(null);
-  const { theme } = useTheme();
 
   useEffect(() => {
     const els = [badgeRef.current, headingRef.current, subtitleRef.current, ctaRef.current];
@@ -28,21 +26,13 @@ export default function Hero() {
     });
   }, []);
 
-  const isLight = theme === "light";
-
   return (
-    <section
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 ${
-        isLight ? "bg-[#F0F2FF]" : "bg-black"
-      }`}
-    >
-      {/* Fallback gradient (behind video) */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Fallback gradient */}
       <div
-        className="absolute inset-0 z-0 transition-opacity duration-500"
+        className="absolute inset-0 z-0"
         style={{
-          background: isLight
-            ? "linear-gradient(135deg, #E8EBFF 0%, #F0F2FF 25%, #FFFFFF 50%, #F0F2FF 75%, #E8EBFF 100%)"
-            : "linear-gradient(135deg, #0a0d1a 0%, #070912 25%, #111 50%, #070912 75%, #0a0d1a 100%)",
+          background: "linear-gradient(135deg, #0a0d1a 0%, #070912 25%, #111 50%, #070912 75%, #0a0d1a 100%)",
         }}
       />
 
@@ -52,63 +42,37 @@ export default function Hero() {
           src="/images/hero-poster.jpg"
           alt="Food photography hero"
           fill
-          className={`object-cover transition-opacity duration-500 ${
-            isLight ? "opacity-60" : "opacity-100"
-          }`}
+          className="object-cover opacity-100"
           sizes="100vw"
           priority
         />
       </div>
 
       {/* Overlays */}
-      <div
-        className={`absolute inset-0 z-[1] transition-opacity duration-500 ${
-          isLight
-            ? "bg-gradient-to-b from-white/20 via-white/10 to-white/70"
-            : "bg-gradient-to-b from-black/40 via-black/30 to-black/85"
-        }`}
-      />
-      <div
-        className={`absolute inset-0 z-[1] transition-opacity duration-500 ${
-          isLight
-            ? "bg-gradient-to-r from-white/10 via-transparent to-white/10"
-            : "bg-gradient-to-r from-black/30 via-transparent to-black/30"
-        }`}
-      />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/30 to-black/85" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/30 via-transparent to-black/30" />
       {/* Blue tone gradient accent */}
-      <div
-        className={`absolute inset-0 z-[1] bg-gradient-to-tr from-[#2F3CCF]/20 via-transparent to-transparent ${
-          isLight ? "opacity-15" : "opacity-20"
-        }`}
-      />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-tr from-[#2F3CCF]/20 via-transparent to-transparent opacity-20" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-[5vw] max-w-5xl mx-auto pt-20 md:pt-24">
         <span
           ref={badgeRef}
-          className={`inline-block px-5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.2em] mb-8 border ${
-            isLight
-              ? "bg-black/5 border-black/10 text-[#555]"
-              : "bg-white/[0.07] border-white/[0.12] text-white/70"
-          }`}
+          className="inline-block px-5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.2em] mb-8 border bg-white/[0.07] border-white/[0.12] text-white/70"
         >
           Premium Food Photography
         </span>
 
         <h1
           ref={headingRef}
-          className={`text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-medium tracking-tight leading-[1.1] mb-8 transition-colors duration-500 ${
-            isLight ? "text-[#111111]" : "text-white"
-          }`}
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-medium tracking-tight leading-[1.1] mb-8 text-white"
         >
           We Capture Food
           <br />
           <span
             className="bg-clip-text text-transparent"
             style={{
-              backgroundImage: isLight
-                ? "linear-gradient(135deg, #2F3CCF 0%, #6F86F7 100%)"
-                : "linear-gradient(135deg, #8B9CF7 0%, #B4C0FF 50%, #8B9CF7 100%)",
+              backgroundImage: "linear-gradient(135deg, #8B9CF7 0%, #B4C0FF 50%, #8B9CF7 100%)",
             }}
           >
             Like Art
@@ -117,9 +81,7 @@ export default function Hero() {
 
         <p
           ref={subtitleRef}
-          className={`text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-16 transition-colors duration-500 ${
-            isLight ? "text-[#4B5563]" : "text-white/60"
-          }`}
+          className="text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-16 text-white/60"
         >
           Premium food photography for brands, restaurants, and campaigns
         </p>
@@ -129,11 +91,7 @@ export default function Hero() {
             onClick={() => {
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className={`px-10 py-4 rounded-full text-sm font-semibold tracking-wider uppercase transition-all duration-300 border-2 backdrop-blur-sm ${
-              isLight
-                ? "border-[#2F3CCF]/50 text-[#2F3CCF] hover:bg-[#2F3CCF]/10 hover:border-[#2F3CCF]/70 hover:shadow-[0_0_24px_rgba(47,60,207,0.15)]"
-                : "border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:shadow-[0_0_24px_rgba(255,255,255,0.08)]"
-            }`}
+            className="px-10 py-4 rounded-full text-sm font-semibold tracking-wider uppercase transition-all duration-300 border-2 backdrop-blur-sm border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:shadow-[0_0_24px_rgba(255,255,255,0.08)]"
           >
             Book a Shoot
           </button>
