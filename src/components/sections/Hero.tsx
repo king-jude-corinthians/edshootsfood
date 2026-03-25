@@ -70,10 +70,12 @@ export default function Hero() {
           We Capture Food
           <br />
           <span
-            className="font-bold uppercase"
+            className="uppercase"
             style={{
+              fontWeight: 900,
               color: "#2F3CCF",
               textShadow: "0 0 20px rgba(47, 60, 207, 0.5), 0 0 40px rgba(47, 60, 207, 0.25), 0 0 60px rgba(47, 60, 207, 0.1)",
+              letterSpacing: "-0.02em",
             }}
           >
             LIKE ART
