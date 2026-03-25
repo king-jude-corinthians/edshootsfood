@@ -51,7 +51,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-5 py-2 rounded-full text-[13px] font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-border)] transition-all duration-200"
+                className="px-5 py-2 rounded-full text-[13px] font-normal text-[var(--color-text)] opacity-70 hover:opacity-100 hover:bg-[var(--color-border)] transition-all duration-200"
               >
                 {link.label}
               </a>
