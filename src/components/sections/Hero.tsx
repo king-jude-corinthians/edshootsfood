@@ -72,7 +72,7 @@ export default function Hero() {
           <span
             className="bg-clip-text text-transparent"
             style={{
-              backgroundImage: "linear-gradient(135deg, #8B9CF7 0%, #B4C0FF 50%, #8B9CF7 100%)",
+              backgroundImage: "linear-gradient(135deg, #D4A853 0%, #F5D88E 50%, #D4A853 100%)",
             }}
           >
             Like Art
