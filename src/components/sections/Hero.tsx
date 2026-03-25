@@ -64,7 +64,7 @@ export default function Hero() {
       <div
         className={`absolute inset-0 z-[1] transition-opacity duration-500 ${
           isLight
-            ? "bg-gradient-to-b from-white/30 via-white/5 to-white/60"
+            ? "bg-gradient-to-b from-white/20 via-white/10 to-white/70"
             : "bg-gradient-to-b from-black/40 via-black/30 to-black/85"
         }`}
       />
@@ -117,22 +117,22 @@ export default function Hero() {
 
         <p
           ref={subtitleRef}
-          className={`text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12 transition-colors duration-500 ${
-            isLight ? "text-[#555555]" : "text-white/60"
+          className={`text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-16 transition-colors duration-500 ${
+            isLight ? "text-[#4B5563]" : "text-white/60"
           }`}
         >
           Premium food photography for brands, restaurants, and campaigns
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <button
             onClick={() => {
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className={`px-8 py-3.5 rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300 border backdrop-blur-sm ${
+            className={`px-10 py-4 rounded-full text-sm font-semibold tracking-wider uppercase transition-all duration-300 border-2 backdrop-blur-sm ${
               isLight
-                ? "border-[#2F3CCF]/40 text-[#2F3CCF] hover:bg-[#2F3CCF]/10 hover:border-[#2F3CCF]/60 hover:shadow-[0_0_20px_rgba(47,60,207,0.2)]"
-                : "border-white/25 text-white/90 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                ? "border-[#2F3CCF]/50 text-[#2F3CCF] hover:bg-[#2F3CCF]/10 hover:border-[#2F3CCF]/70 hover:shadow-[0_0_24px_rgba(47,60,207,0.15)]"
+                : "border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:shadow-[0_0_24px_rgba(255,255,255,0.08)]"
             }`}
           >
             Book a Shoot

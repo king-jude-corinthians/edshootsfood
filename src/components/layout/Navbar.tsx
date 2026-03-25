@@ -37,10 +37,10 @@ export default function Navbar() {
               alt="ED"
               width={48}
               height={48}
-              className="h-10 md:h-11 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(47,60,207,0.6)] group-hover:scale-105"
+              className="h-9 md:h-10 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(47,60,207,0.6)] group-hover:scale-105"
               priority
             />
-            <span className="text-base md:text-lg font-light tracking-wide text-[var(--color-text)] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:text-gold">
+            <span className="text-sm md:text-base font-light tracking-widest text-[var(--color-text)] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:text-gold">
               SHOOTSFOOD
             </span>
           </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-5 py-2 rounded-full text-[13px] font-normal text-[var(--color-text)] opacity-70 hover:opacity-100 hover:bg-[var(--color-border)] transition-all duration-200"
+                className="nav-link px-5 py-2 rounded-full text-[13px] font-medium hover:text-[var(--color-text)] hover:bg-[var(--color-border)] transition-all duration-200"
               >
                 {link.label}
               </a>

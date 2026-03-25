@@ -29,6 +29,13 @@ html.light {
   --color-border: rgba(0,0,0,0.08);
 }
 
+.nav-link {
+  color: rgba(255, 255, 255, 0.75);
+}
+html.light .nav-link {
+  color: #4B5563;
+}
+
 html {
   scroll-behavior: auto;
 }
