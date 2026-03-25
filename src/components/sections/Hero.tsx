@@ -91,7 +91,7 @@ export default function Hero() {
             onClick={() => {
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="px-10 py-4 rounded-full text-sm font-semibold tracking-wider uppercase text-white transition-all duration-300 bg-white/15 border border-white/25 backdrop-blur-md hover:bg-white/25 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:scale-105"
+            className="px-10 py-4 rounded-full glass-glow text-sm font-semibold tracking-wider uppercase text-white transition-all duration-300 bg-white/15 hover:bg-white/25 hover:scale-105"
           >
             Book a Shoot
           </button>
