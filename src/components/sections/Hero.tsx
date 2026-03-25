@@ -70,12 +70,13 @@ export default function Hero() {
           We Capture Food
           <br />
           <span
-            className="bg-clip-text text-transparent"
+            className="font-bold uppercase"
             style={{
-              backgroundImage: "linear-gradient(135deg, #D4A853 0%, #F5D88E 50%, #D4A853 100%)",
+              color: "#2F3CCF",
+              textShadow: "0 0 20px rgba(47, 60, 207, 0.5), 0 0 40px rgba(47, 60, 207, 0.25), 0 0 60px rgba(47, 60, 207, 0.1)",
             }}
           >
-            Like Art
+            LIKE ART
           </span>
         </h1>
 
