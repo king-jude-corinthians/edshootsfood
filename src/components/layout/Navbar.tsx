@@ -78,7 +78,7 @@ export default function Navbar() {
               aria-label="Toggle menu"
             >
               {mobileOpen ? (
-                <X className="w-6 h-6 text-[var(--color-text)]" />
+                <X className="w-6 h-6 text-white" />
               ) : (
                 <Menu className="nav-logo-text w-6 h-6" />
               )}
@@ -90,7 +90,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[var(--color-bg)]/95 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8",
+          "fixed inset-0 z-40 backdrop-blur-xl transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8 bg-black/95",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -101,7 +101,7 @@ export default function Navbar() {
             key={link.label}
             href={link.href}
             onClick={() => setMobileOpen(false)}
-            className="text-3xl font-light text-[var(--color-text)] opacity-80 hover:text-gold transition-colors"
+            className="text-3xl font-light text-white opacity-80 hover:text-gold transition-colors"
           >
             {link.label}
           </a>
