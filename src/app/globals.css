@@ -36,6 +36,13 @@ html.light .nav-scrolled .nav-link {
   color: #4B5563;
 }
 
+.nav-logo-text {
+  color: #FFFFFF;
+}
+html.light .nav-scrolled .nav-logo-text {
+  color: #111111;
+}
+
 html {
   scroll-behavior: auto;
 }
