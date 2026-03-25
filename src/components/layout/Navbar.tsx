@@ -80,7 +80,7 @@ export default function Navbar() {
               {mobileOpen ? (
                 <X className="w-6 h-6 text-[var(--color-text)]" />
               ) : (
-                <Menu className="w-6 h-6 text-[var(--color-text)]" />
+                <Menu className="nav-logo-text w-6 h-6" />
               )}
             </button>
           </div>
