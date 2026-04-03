@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -92,14 +93,12 @@ export default function Hero() {
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <button
+          <LiquidMetalButton
+            label="Book a Shoot"
             onClick={() => {
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="px-10 py-4 rounded-full glass-glow text-sm font-semibold tracking-wider uppercase text-white transition-all duration-300 bg-white/15 hover:bg-white/25 hover:scale-105"
-          >
-            Book a Shoot
-          </button>
+          />
         </div>
       </div>
 

@@ -6,7 +6,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
-import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,15 +56,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <LiquidMetalButton
-              label="Book a Shoot"
-              onClick={() => {
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-            />
-          </div>
 
           {/* Mobile Toggle */}
           <div className="flex items-center gap-2 md:hidden z-10">
@@ -103,15 +93,6 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <div className="mt-4">
-          <LiquidMetalButton
-            label="Book a Shoot"
-            onClick={() => {
-              setMobileOpen(false);
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-        </div>
       </div>
     </>
   );
