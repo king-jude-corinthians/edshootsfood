@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Garnetta";
+  src: url("/fonts/Garnetta.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-brand: #2F3CCF;
   --color-brand-light: #6F86F7;
