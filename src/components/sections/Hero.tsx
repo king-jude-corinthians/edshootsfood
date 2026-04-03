@@ -65,11 +65,13 @@ export default function Hero() {
 
         <h1
           ref={headingRef}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-medium tracking-tight leading-[1.1] mb-8 text-white"
+          className="mb-8 text-white tracking-tight leading-none"
         >
-          We Capture Food
-          <br />
-          <span style={{ fontFamily: "var(--font-garnetta), sans-serif" }}>
+          <span className="block text-3xl sm:text-4xl md:text-5xl font-medium mb-2">We Capture Food</span>
+          <span
+            className="block text-7xl sm:text-8xl md:text-9xl xl:text-[11rem]"
+            style={{ fontFamily: "var(--font-garnetta), sans-serif", lineHeight: 1 }}
+          >
             <span style={{ color: "#ffffff" }}>LIKE </span>
             <span
               style={{
