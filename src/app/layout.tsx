@@ -39,6 +39,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${garnetta.variable} dark`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          localStorage.removeItem('theme');
+          document.documentElement.classList.remove('light');
+          document.documentElement.classList.add('dark');
+        `}} />
+      </head>
       <body className="antialiased bg-[#0A0A0A]">
         <ThemeProvider>
           <ChatProvider>
