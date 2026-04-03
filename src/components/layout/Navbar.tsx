@@ -29,7 +29,7 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-[1400px] px-[5vw] flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-10 group">
+          <Link href="/" className="flex items-center gap-2 z-10 group glass-glow rounded-full px-3 py-1.5">
             <Image
               src="/images/logo-icon.png"
               alt="ED"

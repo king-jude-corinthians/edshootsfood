@@ -89,7 +89,7 @@ export default function Hero() {
           ref={subtitleRef}
           className="text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-16 text-white/60"
         >
-          Premium food photography for brands, restaurants, and campaigns
+          Premium food photography for food brands and restaurants!
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-6">
