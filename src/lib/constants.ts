@@ -101,26 +101,21 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const PORTFOLIO_ITEMS = [
+  // Restaurants — click opens gallery
   {
     id: "1",
     title: "Whispers",
     category: "Restaurants",
     image: "/images/portfolio/placeholder-1.jpg",
     aspect: "tall",
-  },
-  {
-    id: "2",
-    title: "Banner Spot",
-    category: "Commercial",
-    image: "/images/portfolio/placeholder-2.jpg",
-    aspect: "wide",
-  },
-  {
-    id: "3",
-    title: "MEATS 'R' Us",
-    category: "Products",
-    image: "/images/portfolio/placeholder-3.jpg",
-    aspect: "square",
+    gallery: [
+      "/images/portfolio/placeholder-1.jpg",
+      "/images/portfolio/placeholder-1.jpg",
+      "/images/portfolio/placeholder-1.jpg",
+      "/images/portfolio/placeholder-1.jpg",
+      "/images/portfolio/placeholder-1.jpg",
+      "/images/portfolio/placeholder-1.jpg",
+    ],
   },
   {
     id: "4",
@@ -128,13 +123,14 @@ export const PORTFOLIO_ITEMS = [
     category: "Restaurants",
     image: "/images/portfolio/placeholder-4.jpg",
     aspect: "tall",
-  },
-  {
-    id: "5",
-    title: "Spot Media Artboard",
-    category: "Commercial",
-    image: "/images/portfolio/placeholder-5.jpg",
-    aspect: "wide",
+    gallery: [
+      "/images/portfolio/placeholder-4.jpg",
+      "/images/portfolio/placeholder-4.jpg",
+      "/images/portfolio/placeholder-4.jpg",
+      "/images/portfolio/placeholder-4.jpg",
+      "/images/portfolio/placeholder-4.jpg",
+      "/images/portfolio/placeholder-4.jpg",
+    ],
   },
   {
     id: "6",
@@ -142,7 +138,77 @@ export const PORTFOLIO_ITEMS = [
     category: "Restaurants",
     image: "/images/portfolio/placeholder-6.jpg",
     aspect: "square",
+    gallery: [
+      "/images/portfolio/placeholder-6.jpg",
+      "/images/portfolio/placeholder-6.jpg",
+      "/images/portfolio/placeholder-6.jpg",
+      "/images/portfolio/placeholder-6.jpg",
+      "/images/portfolio/placeholder-6.jpg",
+      "/images/portfolio/placeholder-6.jpg",
+    ],
   },
+  {
+    id: "10",
+    title: "Uncle T's Fine Dining",
+    category: "Restaurants",
+    image: "/images/portfolio/placeholder-10.jpg",
+    aspect: "tall",
+    gallery: [
+      "/images/portfolio/placeholder-10.jpg",
+      "/images/portfolio/placeholder-10.jpg",
+      "/images/portfolio/placeholder-10.jpg",
+      "/images/portfolio/placeholder-10.jpg",
+      "/images/portfolio/placeholder-10.jpg",
+      "/images/portfolio/placeholder-10.jpg",
+    ],
+  },
+  // Products — click opens gallery
+  {
+    id: "3",
+    title: "MEATS 'R' Us",
+    category: "Products",
+    image: "/images/portfolio/placeholder-3.jpg",
+    aspect: "square",
+    gallery: [
+      "/images/portfolio/placeholder-3.jpg",
+      "/images/portfolio/placeholder-3.jpg",
+      "/images/portfolio/placeholder-3.jpg",
+      "/images/portfolio/placeholder-3.jpg",
+      "/images/portfolio/placeholder-3.jpg",
+      "/images/portfolio/placeholder-3.jpg",
+    ],
+  },
+  {
+    id: "9",
+    title: "District",
+    category: "Products",
+    image: "/images/portfolio/placeholder-9.jpg",
+    aspect: "square",
+    gallery: [
+      "/images/portfolio/placeholder-9.jpg",
+      "/images/portfolio/placeholder-9.jpg",
+      "/images/portfolio/placeholder-9.jpg",
+      "/images/portfolio/placeholder-9.jpg",
+      "/images/portfolio/placeholder-9.jpg",
+      "/images/portfolio/placeholder-9.jpg",
+    ],
+  },
+  {
+    id: "12",
+    title: "Chopwithnu",
+    category: "Products",
+    image: "/images/portfolio/placeholder-12.jpg",
+    aspect: "square",
+    gallery: [
+      "/images/portfolio/placeholder-12.jpg",
+      "/images/portfolio/placeholder-12.jpg",
+      "/images/portfolio/placeholder-12.jpg",
+      "/images/portfolio/placeholder-12.jpg",
+      "/images/portfolio/placeholder-12.jpg",
+      "/images/portfolio/placeholder-12.jpg",
+    ],
+  },
+  // Drinks — single lightbox
   {
     id: "7",
     title: "Cocktails",
@@ -158,20 +224,6 @@ export const PORTFOLIO_ITEMS = [
     aspect: "wide",
   },
   {
-    id: "9",
-    title: "District",
-    category: "Products",
-    image: "/images/portfolio/placeholder-9.jpg",
-    aspect: "square",
-  },
-  {
-    id: "10",
-    title: "Uncle T's Fine Dining",
-    category: "Restaurants",
-    image: "/images/portfolio/placeholder-10.jpg",
-    aspect: "tall",
-  },
-  {
     id: "11",
     title: "Craft Cocktails",
     category: "Drinks",
@@ -179,20 +231,70 @@ export const PORTFOLIO_ITEMS = [
     aspect: "wide",
   },
   {
-    id: "12",
-    title: "Chopwithnu",
-    category: "Products",
-    image: "/images/portfolio/placeholder-12.jpg",
+    id: "13",
+    title: "Mocktails",
+    category: "Drinks",
+    image: "/images/portfolio/placeholder-7.jpg",
     aspect: "square",
   },
-] as const;
+  {
+    id: "14",
+    title: "Smoothies",
+    category: "Drinks",
+    image: "/images/portfolio/placeholder-8.jpg",
+    aspect: "tall",
+  },
+  // Food — single lightbox
+  {
+    id: "15",
+    title: "Grilled Selection",
+    category: "Food",
+    image: "/images/portfolio/placeholder-2.jpg",
+    aspect: "wide",
+  },
+  {
+    id: "16",
+    title: "Pasta Series",
+    category: "Food",
+    image: "/images/portfolio/placeholder-5.jpg",
+    aspect: "tall",
+  },
+  {
+    id: "17",
+    title: "Dessert Collection",
+    category: "Food",
+    image: "/images/portfolio/placeholder-1.jpg",
+    aspect: "square",
+  },
+  {
+    id: "18",
+    title: "Breakfast Spread",
+    category: "Food",
+    image: "/images/portfolio/placeholder-3.jpg",
+    aspect: "wide",
+  },
+  {
+    id: "19",
+    title: "Street Food",
+    category: "Food",
+    image: "/images/portfolio/placeholder-6.jpg",
+    aspect: "tall",
+  },
+  {
+    id: "20",
+    title: "Fine Dining Plating",
+    category: "Food",
+    image: "/images/portfolio/placeholder-9.jpg",
+    aspect: "square",
+  },
+];
 
 export const PORTFOLIO_CATEGORIES = [
   "All",
   "Restaurants",
   "Products",
   "Drinks",
-  "Commercial",
+  "Food",
 ] as const;
 
 export const ABOUT = {
