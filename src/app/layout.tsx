@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${garnetta.variable} dark`} suppressHydrationWarning>
-      <body className="antialiased bg-[#0A0A0A] light:bg-white transition-colors duration-500">
+      <body className="antialiased bg-[#0A0A0A]">
         <ThemeProvider>
           <ChatProvider>
             <SmoothScroll>

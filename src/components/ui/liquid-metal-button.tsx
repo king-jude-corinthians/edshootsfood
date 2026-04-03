@@ -4,7 +4,6 @@ import { liquidMetalFragmentShader, ShaderMount } from "@paper-design/shaders";
 import { Sparkles } from "lucide-react";
 import type React from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useTheme } from "@/components/providers/ThemeProvider";
 
 interface LiquidMetalButtonProps {
   label?: string;
@@ -19,8 +18,6 @@ export function LiquidMetalButton({
   viewMode = "text",
   variant = "primary",
 }: LiquidMetalButtonProps) {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
   const [ripples, setRipples] = useState<
@@ -35,27 +32,19 @@ export function LiquidMetalButton({
   const colors = useMemo(() => {
     if (variant === "secondary") {
       return {
-        innerBg: isLight
-          ? "linear-gradient(180deg, #FFFFFF 0%, #F0F2FF 100%)"
-          : "linear-gradient(180deg, #1a1a2e 0%, #0a0a1a 100%)",
-        textColor: isLight ? "#2F3CCF" : "#6F86F7",
-        glowColor: isLight
-          ? "0 0 20px rgba(47, 60, 207, 0.3), 0 0 40px rgba(47, 60, 207, 0.1)"
-          : "0 0 20px rgba(74, 95, 227, 0.2), 0 0 40px rgba(74, 95, 227, 0.1)",
-        borderColor: isLight ? "rgba(47, 60, 207, 0.25)" : "rgba(74, 95, 227, 0.3)",
+        innerBg: "linear-gradient(180deg, #1a1a2e 0%, #0a0a1a 100%)",
+        textColor: "#6F86F7",
+        glowColor: "0 0 20px rgba(74, 95, 227, 0.2), 0 0 40px rgba(74, 95, 227, 0.1)",
+        borderColor: "rgba(74, 95, 227, 0.3)",
       };
     }
     return {
-      innerBg: isLight
-        ? "linear-gradient(180deg, #3A4AD9 0%, #2F3CCF 100%)"
-        : "linear-gradient(180deg, #4A5FE3 0%, #2F3CCF 100%)",
+      innerBg: "linear-gradient(180deg, #4A5FE3 0%, #2F3CCF 100%)",
       textColor: "#FFFFFF",
-      glowColor: isLight
-        ? "0 0 20px rgba(47, 60, 207, 0.5), 0 0 40px rgba(47, 60, 207, 0.2)"
-        : "0 0 20px rgba(74, 95, 227, 0.4), 0 0 40px rgba(74, 95, 227, 0.15)",
-      borderColor: isLight ? "rgba(47, 60, 207, 0.4)" : "rgba(74, 95, 227, 0.4)",
+      glowColor: "0 0 20px rgba(74, 95, 227, 0.4), 0 0 40px rgba(74, 95, 227, 0.15)",
+      borderColor: "rgba(74, 95, 227, 0.4)",
     };
-  }, [variant, isLight]);
+  }, [variant]);
 
   const dimensions = useMemo(() => {
     if (viewMode === "icon") {
