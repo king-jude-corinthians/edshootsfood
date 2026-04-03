@@ -6,7 +6,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 export default function Navbar() {
@@ -58,9 +57,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA + Theme Toggle */}
+          {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
             <LiquidMetalButton
               label="Book a Shoot"
               onClick={() => {
@@ -71,7 +69,6 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <div className="flex items-center gap-2 md:hidden z-10">
-            <ThemeToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2"
