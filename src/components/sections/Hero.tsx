@@ -39,7 +39,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-poster.jpg"
+          src="/images/hero-poster.jpeg"
           alt="Food photography hero"
           fill
           className="object-cover opacity-100"
