@@ -69,7 +69,7 @@ export default function Hero() {
         >
           We Capture Food
           <br />
-          <span style={{ fontFamily: "Garnetta, sans-serif" }}>
+          <span style={{ fontFamily: "var(--font-garnetta), sans-serif" }}>
             <span style={{ color: "#ffffff" }}>LIKE </span>
             <span
               style={{

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -12,6 +13,12 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+});
+
+const garnetta = localFont({
+  src: "./fonts/Garnetta.otf",
+  variable: "--font-garnetta",
+  display: "block",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} dark`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${garnetta.variable} dark`} suppressHydrationWarning>
       <body className="antialiased bg-[#0A0A0A] light:bg-white transition-colors duration-500">
         <ThemeProvider>
           <ChatProvider>
