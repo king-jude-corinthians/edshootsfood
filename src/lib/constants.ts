@@ -199,9 +199,9 @@ export const ABOUT = {
   name: "Ezekwe Desmond",
   title: "Food Photographer & Visual Storyteller",
   bio: [
-    "Food is more than sustenance — it's art, culture, and emotion on a plate. I'm Ezekwe Desmond, and I've dedicated my craft to capturing that magic through my lens.",
-    "Every shoot is a collaboration. I immerse myself in your brand's story, your flavors, your vision. From the first frame to the final edit, I obsess over every detail — the way light kisses a glaze, the steam rising from a fresh dish, the textures that make you reach for the screen.",
-    "My passion is transforming ordinary moments into extraordinary visuals that don't just showcase food — they make people feel something.",
+    "Desmond is a food photographer passionate about capturing the true essence of food beyond the plate. Inspired by the sensory experience which is from aroma to texture, his work translates taste into compelling, story-driven imagery.",
+    "What began as a personal passion has grown into a refined visual style focused on clarity, authenticity, and strong brand storytelling. He creates imagery that not only showcases food but elevates how it is experienced.",
+    "Rooted in the same passion, his work continues to evolve with a stronger, more defined presence.",
   ],
   stats: [
     { label: "Projects Completed", value: "500+" },
