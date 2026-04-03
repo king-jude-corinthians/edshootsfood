@@ -196,7 +196,10 @@ export default function Inquiry() {
                 <div className="form-reveal">
                   <input
                     {...register("date")}
-                    type="date"
+                    type="text"
+                    placeholder="Date of Shoot"
+                    onFocus={(e) => (e.target.type = "date")}
+                    onBlur={(e) => { if (!e.target.value) e.target.type = "text"; }}
                     className={`${inputClass} text-[var(--color-text-muted)]`}
                   />
                   {errors.date && (
