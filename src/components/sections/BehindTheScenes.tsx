@@ -67,7 +67,7 @@ export default function BehindTheScenes() {
               key={video.id}
               className="bts-item flex-shrink-0 w-[320px] md:w-[400px] group cursor-pointer snap-start"
             >
-              <div className="relative aspect-video rounded-2xl overflow-hidden mb-4">
+              <div className="relative aspect-square rounded-2xl overflow-hidden mb-4">
                 <video
                   autoPlay
                   muted
