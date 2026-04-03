@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
 const WHATSAPP_NUMBER = "+2348089591880";
@@ -32,7 +32,6 @@ export default function Inquiry() {
     handleSubmit,
     formState: { errors },
     reset,
-    getValues,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
@@ -68,27 +67,14 @@ export default function Inquiry() {
   const onSubmit = async (data: FormData) => {
     setSending(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-        reset();
-      }
-    } catch {
-      // Handle error
+      const message = `Hi Ed, I'd like to book a shoot! Here are my details:\n\n👤 Name: ${data.name}\n📞 Phone: ${data.phone}\n✉️ Email: ${data.email}\n📸 Package: ${data.projectType}\n📍 Location: ${data.location}\n📅 Date: ${data.date}\n💰 Package: ${data.budget}\n\n💬 ${data.message}`;
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}?text=${encoded}`, "_blank");
+      setSubmitted(true);
+      reset();
     } finally {
       setSending(false);
     }
-  };
-
-  const openWhatsApp = () => {
-    const values = getValues();
-    const message = `Hi Ed, I just booked a food shoot on your website. Here are my details:\nName: ${values.name || "N/A"}\nProject: ${values.projectType || "N/A"}\nLocation: ${values.location || "N/A"}\nDate: ${values.date || "N/A"}\nBudget: ${values.budget || "N/A"}\nMessage: ${values.message || "N/A"}`;
-    const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}?text=${encoded}`, "_blank");
   };
 
   const inputClass =
@@ -177,24 +163,14 @@ export default function Inquiry() {
                 </div>
                 <div className="form-reveal">
                   <select {...register("projectType")} className={selectClass}>
-                    <option value="" className="bg-[var(--color-bg-card)]">
-                      Project Type
-                    </option>
-                    <option value="food-photography" className="bg-[var(--color-bg-card)]">
-                      Food Photography
-                    </option>
-                    <option value="product-shoot" className="bg-[var(--color-bg-card)]">
-                      Product Shoot
-                    </option>
-                    <option value="brand-campaign" className="bg-[var(--color-bg-card)]">
-                      Brand Campaign
-                    </option>
-                    <option value="social-media" className="bg-[var(--color-bg-card)]">
-                      Social Media Content
-                    </option>
-                    <option value="other" className="bg-[var(--color-bg-card)]">
-                      Other
-                    </option>
+                    <option value="" className="bg-[var(--color-bg-card)]">Project Type</option>
+                    <option value="Photography - Silver Package (N150k)" className="bg-[var(--color-bg-card)]">Photography — Silver Package (N150k)</option>
+                    <option value="Photography - Platinum Package (N180k)" className="bg-[var(--color-bg-card)]">Photography — Platinum Package (N180k)</option>
+                    <option value="Photography - Gold Package (N250k)" className="bg-[var(--color-bg-card)]">Photography — Gold Package (N250k)</option>
+                    <option value="Videography - Basic Package (N130k)" className="bg-[var(--color-bg-card)]">Videography — Basic Package (N130k)</option>
+                    <option value="Videography - Classic Package (N175k)" className="bg-[var(--color-bg-card)]">Videography — Classic Package (N175k)</option>
+                    <option value="Videography - Premium Package (N225k)" className="bg-[var(--color-bg-card)]">Videography — Premium Package (N225k)</option>
+                    <option value="Custom / Other" className="bg-[var(--color-bg-card)]">Custom / Other</option>
                   </select>
                   {errors.projectType && (
                     <p className="text-gold/60 text-xs mt-1.5 ml-1">
@@ -230,21 +206,14 @@ export default function Inquiry() {
 
               <div className="form-reveal">
                 <select {...register("budget")} className={selectClass}>
-                  <option value="" className="bg-[var(--color-bg-card)]">
-                    Budget Range
-                  </option>
-                  <option value="500-1000" className="bg-[var(--color-bg-card)]">
-                    $500 - $1,000
-                  </option>
-                  <option value="1000-2500" className="bg-[var(--color-bg-card)]">
-                    $1,000 - $2,500
-                  </option>
-                  <option value="2500-5000" className="bg-[var(--color-bg-card)]">
-                    $2,500 - $5,000
-                  </option>
-                  <option value="5000+" className="bg-[var(--color-bg-card)]">
-                    $5,000+
-                  </option>
+                  <option value="" className="bg-[var(--color-bg-card)]">Select Package Budget</option>
+                  <option value="N130k - Basic Videography" className="bg-[var(--color-bg-card)]">N130k — Basic Videography</option>
+                  <option value="N150k - Silver Photography" className="bg-[var(--color-bg-card)]">N150k — Silver Photography</option>
+                  <option value="N175k - Classic Videography" className="bg-[var(--color-bg-card)]">N175k — Classic Videography</option>
+                  <option value="N180k - Platinum Photography" className="bg-[var(--color-bg-card)]">N180k — Platinum Photography</option>
+                  <option value="N225k - Premium Videography" className="bg-[var(--color-bg-card)]">N225k — Premium Videography</option>
+                  <option value="N250k - Gold Photography" className="bg-[var(--color-bg-card)]">N250k — Gold Photography</option>
+                  <option value="Custom Budget" className="bg-[var(--color-bg-card)]">Custom Budget</option>
                 </select>
                 {errors.budget && (
                   <p className="text-gold/60 text-xs mt-1.5 ml-1">
