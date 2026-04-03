@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${garnetta.variable} dark`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${garnetta.variable} dark`} style={{ colorScheme: "dark" }} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `
           localStorage.removeItem('theme');

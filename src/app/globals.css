@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+html {
+  color-scheme: dark;
+}
+
 :root {
   --color-brand: #2F3CCF;
   --color-brand-light: #6F86F7;
