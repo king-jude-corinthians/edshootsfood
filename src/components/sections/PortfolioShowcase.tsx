@@ -150,10 +150,12 @@ export default function PortfolioShowcase() {
                       <span className="inline-block px-3 py-1 rounded-full glass text-gold text-[10px] uppercase tracking-wider mb-2">
                         {item.category}
                       </span>
-                      <h3 className="text-xl font-medium text-white flex items-center gap-2">
-                        {item.title}
-                        {hasGallery(item) && <Images className="w-4 h-4 text-gold/70" />}
-                      </h3>
+                      {item.category !== "Drinks" && item.category !== "Food" && (
+                        <h3 className="text-xl font-medium text-white flex items-center gap-2">
+                          {item.title}
+                          {hasGallery(item) && <Images className="w-4 h-4 text-gold/70" />}
+                        </h3>
+                      )}
                     </div>
                   </div>
                 </div>
