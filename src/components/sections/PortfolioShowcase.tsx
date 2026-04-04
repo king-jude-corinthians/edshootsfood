@@ -186,7 +186,9 @@ export default function PortfolioShowcase() {
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
               <span className="inline-block px-3 py-1 rounded-full glass text-gold text-[10px] uppercase tracking-wider mb-2">{filteredItems[lightboxIndex].category}</span>
-              <h3 className="text-2xl font-medium text-white">{filteredItems[lightboxIndex].title}</h3>
+              {filteredItems[lightboxIndex].category !== "Drinks" && filteredItems[lightboxIndex].category !== "Food" && (
+                <h3 className="text-2xl font-medium text-white">{filteredItems[lightboxIndex].title}</h3>
+              )}
             </div>
           </div>
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 text-sm">{lightboxIndex + 1} / {filteredItems.length}</div>
