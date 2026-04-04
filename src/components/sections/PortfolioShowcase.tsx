@@ -108,7 +108,7 @@ export default function PortfolioShowcase() {
               Selected Work
             </h2>
             <p className="mt-5 text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
-              A curated collection of culinary stories, crafted by KINGJUDE.
+              A curated collection of culinary stories, crafted by ED.
             </p>
           </div>
 
